@@ -3,7 +3,7 @@ import React from 'react';
 // import { history } from 'umi';
 
 /** 组件--antd有限 */
-import { RightRender } from '@/components/RightRender';
+import { RightRender } from '@/layouts';
 /** 本地utils、模块 */
 import logo from '@/assets/logo.png';
 /** const/let声明 */
@@ -14,6 +14,23 @@ export const layout = {
   logo, // 产品 Logo
   name: 'Angsi', // 侧边栏头部产品名，默认值为包名
   locale: true,
+  menu: {
+    locale: true,
+    defaultOpenAll: true,
+  },
+  /** collapsed固定开/关 */
+  // collapsed: false,
+  onCollapse: (collapsed: boolean): void => {
+    console.log(collapsed);
+  },
+  pageTitleRender: (props: any) => {
+    console.log(props);
+  },
+  breadcrumbRender: (route: any) => {
+    console.log(route);
+  },
+  // headerRender:(props: BasicLayoutProps) :ReactNode=> {
+  // },
   /** 发生错误后的回调（可做一些错误日志上报，打点等） */
   onError: (e: any) => {
     console.log(e);
