@@ -1,7 +1,12 @@
 /** 运行时配置文件，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。 */
-import { history } from 'umi';
-/** layout有操作都会执行 */
+// import { history } from 'umi';
+
+import logo from '@/assets/logo.png';
+
+/** layout配置/操作，需要在配置文件开启layout */
 export const layout = {
+  logo, // 产品 Logo
+  name: 'Angsi', // 侧边栏头部产品名，默认值为包名
   /** 发生错误后的回调（可做一些错误日志上报，打点等） */
   onError: (e: any) => {
     console.log(e);

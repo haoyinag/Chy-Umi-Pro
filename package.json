@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev",
-    "build": "umi build",
+    "start": "umi dev ANGSI_APP_ENV=dev",
+    "build": "umi build ANGSI_APP_ENV=build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
@@ -20,8 +20,9 @@
     ]
   },
   "dependencies": {
+    "@ant-design/pro-layout": "^5.0.9",
     "@umijs/preset-react": "1.x",
-    "@umijs/test": "^3.1.1", 
+    "@umijs/test": "^3.1.1",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
