@@ -3,4 +3,6 @@ import React from 'react';
 // import { Card, Typography, Alert } from 'antd';
 // import { PageHeaderWrapper } from '@ant-design/pro-layout';
 
-export default (): React.ReactNode => <div className="layouts">layouts</div>;
+export const RightRender = () => {
+  return <div className="RightRender">RightRender</div>;
+};
