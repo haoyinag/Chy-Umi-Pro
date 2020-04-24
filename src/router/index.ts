@@ -1,4 +1,5 @@
 import Admin from './Admin';
+import Demo from './Demo';
 
 /** 如果有必要，可以通过接口返回对应的路由表以及各种权限
  *  通过配置如
@@ -33,6 +34,7 @@ export default [
     exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
     component: '@/pages/user/login',
   },
+  { ...Demo },
   { ...Admin },
   // {
   // path: '/admin',
