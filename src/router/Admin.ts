@@ -1,7 +1,7 @@
 export default {
   // title: 'Admin页面',
   path: '/welcome',
-  // name: 'welcome',
+  name: 'welcome',
   icon: 'crown',
   /** access--当 Layout 插件配合 @umijs/plugin-access 插件使用时生效
    *  权限插件会将用户在这里配置的 access 字符串与当前用户所有权限做匹配，
@@ -25,7 +25,7 @@ export default {
         {
           path: '/welcome/sub-sub-page1',
           name: '三级页面',
-          icon: 'smile',
+          icon: 'UnorderedList',
           component: '@/pages/Admin',
         },
       ],

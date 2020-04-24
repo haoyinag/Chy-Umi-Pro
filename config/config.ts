@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 
 import proxy from './proxy';
 
@@ -9,7 +10,7 @@ const env = process.env.NODE_ENV;
 /** 把路由文件放在src下是为了方便按模块拆分组装路由表，而且方便通过请求配置access */
 import routes from '../src/router';
 
-export default defineConfig({
+const config = defineConfig({
   // title: 'site.title',
   hash: true,
   /** base:如果生产环境也是/，页面会白屏 */
@@ -104,4 +105,10 @@ export default defineConfig({
   // mpa:{} 切换渲染模式为 mpa=>为每个页面输出 html;为每个页面输出 html;
   /** 配置压缩器 terser 的配置项 */
   // terserOptions: {}
+  chainWebpack: config => {
+    config.plugin('AntdDayjsWebpackPlugin').use(AntdDayjsWebpackPlugin);
+    return config;
+  },
 });
+
+export default config;

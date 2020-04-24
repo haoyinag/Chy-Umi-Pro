@@ -1,6 +1,5 @@
 /** 库 */
 import React from 'react';
-// import { history } from 'umi';
 
 /** 组件--antd优先 */
 import { RightRender } from '@/layouts';
