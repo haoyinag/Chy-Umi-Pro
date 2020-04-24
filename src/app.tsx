@@ -1,20 +1,13 @@
 /** 库 */
 import React from 'react';
-// import { history } from 'umi';import { getMenuData } from '@ant-design/pro-layout';
-import { getMenuData } from '@ant-design/pro-layout';
-// const { breadcrumb, menuData } = getMenuData(
-//   routes,
-//   menu,
-//   formatMessage,
-//   menuDataRender,
-// );
 
-/** 组件--antd有限 */
+/** 组件--antd优先 */
 import { RightRender } from '@/layouts';
+
 /** 本地utils、模块 */
 import logo from '@/assets/logo.png';
-/** const/let声明 */
 
+/** const/let声明 */
 /** 运行时配置文件，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。 */
 /** layout配置/操作，需要在配置文件开启layout */
 export const layout = {
