@@ -22,6 +22,7 @@ export let layout: any = {
     locale: true,
     defaultOpenAll: false,
   },
+  settings: defaultSettings,
   /** collapsed固定开/关 */
   // collapsed: false,
   // onCollapse: (collapsed: boolean): void => {
@@ -29,7 +30,7 @@ export let layout: any = {
   // },
   // pageTitleRender: (props: any) => {
   //   console.log(props);
-  //   return 'biaoti';
+  //   return <h1>biaoti</h1>
   // },
   // breadcrumbRender: (route: any) => {
   //   console.log(route);
