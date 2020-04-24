@@ -1,5 +1,5 @@
 export default {
-  title: 'Admin页面',
+  // title: 'Admin页面',
   path: '/admin',
   // name: 'admin',
   icon: 'crown',
@@ -8,7 +8,7 @@ export default {
    *  如果找到相同的项，并当该权限的值为 false，则当用户访问该路由时，默认展示 403 页面
    */
   access: 'canAdmin',
-  component: './Admin',
+  // component: '@/pages/Admin',
   layout: {
     // hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏
     // hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
@@ -23,10 +23,9 @@ export default {
   routes: [
     {
       path: '/admin/sub-page',
-      name: 'sub-page',
-      title: 'Admin子页面',
+      name: '123',
       icon: 'smile',
-      component: './Welcome',
+      component: '@/pages/Admin',
     },
   ],
 };

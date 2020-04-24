@@ -1,6 +1,13 @@
 /** 库 */
 import React from 'react';
-// import { history } from 'umi';
+// import { history } from 'umi';import { getMenuData } from '@ant-design/pro-layout';
+import { getMenuData } from '@ant-design/pro-layout';
+// const { breadcrumb, menuData } = getMenuData(
+//   routes,
+//   menu,
+//   formatMessage,
+//   menuDataRender,
+// );
 
 /** 组件--antd有限 */
 import { RightRender } from '@/layouts';
@@ -14,21 +21,29 @@ export const layout = {
   logo, // 产品 Logo
   name: 'Angsi', // 侧边栏头部产品名，默认值为包名
   locale: true,
+  // pure: true, // 是否删除框架layout
   menu: {
     locale: true,
-    defaultOpenAll: true,
+    defaultOpenAll: false,
   },
   /** collapsed固定开/关 */
   // collapsed: false,
-  onCollapse: (collapsed: boolean): void => {
-    console.log(collapsed);
-  },
-  pageTitleRender: (props: any) => {
-    console.log(props);
-  },
-  breadcrumbRender: (route: any) => {
-    console.log(route);
-  },
+  // onCollapse: (collapsed: boolean): void => {
+  //   console.log(collapsed);
+  // },
+  // pageTitleRender: (props: any) => {
+  //   console.log(props);
+  //   return 'biaoti';
+  // },
+  // breadcrumbRender: (route: any) => {
+  //   console.log(route);
+  //   let str = '';
+  //   route &&
+  //     route.map((item: any) => {
+  //       return (str += item.breadcrumbName + '/');
+  //     });
+  //   return route;
+  // },
   // headerRender:(props: BasicLayoutProps) :ReactNode=> {
   // },
   /** 发生错误后的回调（可做一些错误日志上报，打点等） */
@@ -46,8 +61,6 @@ export const layout = {
   },
   /** 顶部栏开合 */
   rightRender: (initInfo: any) => {
-    console.log(initInfo);
-
     return <RightRender />;
   }, // return string || ReactNode;
 };
@@ -57,22 +70,22 @@ export const layout = {
 // }
 
 /** 在初始加载和路由切换时做一些事情--比如用于做埋点统计/比如用于设置标题 */
-export function onRouteChange({
-  matchedRoutes,
-  location,
-  routes,
-  action,
-}: {
-  matchedRoutes: any;
-  location: any;
-  routes: any;
-  action: any;
-}) {
-  // bacon(location.pathname);
-  if (matchedRoutes.length) {
-    document.title = matchedRoutes[matchedRoutes.length - 1].route.title || '';
-  }
-}
+// export function onRouteChange({
+//   matchedRoutes,
+//   location,
+//   routes,
+//   action,
+// }: {
+//   matchedRoutes: any;
+//   location: any;
+//   routes: any;
+//   action: any;
+// }) {
+//   // bacon(location.pathname);
+//   if (matchedRoutes.length) {
+//     document.title = matchedRoutes[matchedRoutes.length - 1].route.title || '';
+//   }
+// }
 
 /** render覆写 render，会直接阻断所有的运行时 */
 // export function render(oldRender) {

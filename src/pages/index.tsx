@@ -1,5 +1,10 @@
 import React from 'react';
-console.log(process.env.ANGSI_APP_ENV);
-export default () => {
-  return <div className="content">content</div>;
-};
+import { PageHeaderWrapper, getPageTitle } from '@ant-design/pro-layout';
+const title = getPageTitle({});
+console.log(title);
+
+export default () => (
+  <PageHeaderWrapper content="模块说明">
+    <div className="Content">123Content</div>
+  </PageHeaderWrapper>
+);
