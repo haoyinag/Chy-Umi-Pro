@@ -1,6 +1,7 @@
 export default {
   // title: 'Admin页面',
-  path: '/welcome',
+  // path: '/welcome', // 如果一级路由有path字段，最好有对应的component负责渲染，否则面包屑导航不精确
+  // component: '@/pages/Admin',
   name: 'welcome',
   icon: 'crown',
   /** access--当 Layout 插件配合 @umijs/plugin-access 插件使用时生效

@@ -106,6 +106,7 @@ const config = defineConfig({
   /** 配置压缩器 terser 的配置项 */
   // terserOptions: {}
   chainWebpack: config => {
+    /** dayjs替换momentjs */
     config.plugin('AntdDayjsWebpackPlugin').use(AntdDayjsWebpackPlugin);
     return config;
   },
