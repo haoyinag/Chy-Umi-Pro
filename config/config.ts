@@ -33,16 +33,17 @@ export default defineConfig({
   routes,
   /** 启用umi的layout插件
    *  如果不开启，layout需要自己实现，
-   *  并且src\app.ts的相关如rightRender、logout等会报错
+   *  并且不开启src\app.ts的相关如rightRender、logout等会报错
    *  开启之后，会自动读取当前的·routes·配置
    */
   layout: {
+    name: 'Angsi Design Pro',
     // logo 在这里配置不生效，要在app.tsx配置
     // theme: 'pro', // 指定 Layout 主题, tech 仅在蚂蚁内部框架 Bigfish 中生效
     /** 是否开始国际化配置。开启后路由里配置的菜单名会被当作菜单名国际化的 key，
      * 插件会去 locales 文件中查找 menu.[key]对应的文案，默认值为改 key。
      * 该功能需要配置 @umijs/plugin-locale 使用 */
-    // locale: true,
+    locale: true,
   },
   /** 国际化--构建式配置，src/locals是约定式配置*/
   // locale: {

@@ -9,10 +9,10 @@ export default {
    */
   access: 'canAdmin',
   // component: '@/pages/Admin',
-  layout: {
-    // hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏
-    // hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
-  },
+  // layout: {
+  //   hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏
+  //   hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
+  // },
   /** menu下字段会覆盖当前层级的同名字段 */
   menu: {
     name: '欢迎admin', // 兼容此写法
@@ -24,8 +24,20 @@ export default {
     {
       path: '/admin/sub-page',
       name: '123',
+      title: 'gg',
       icon: 'smile',
       component: '@/pages/Admin',
+    },
+    {
+      path: '/user/login',
+      title: '登录页',
+      name: '登录页',
+      layout: {
+        hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏
+        hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
+      },
+      exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
+      component: '@/pages/user/login',
     },
   ],
 };

@@ -1,6 +1,12 @@
 import Admin from './Admin';
 
-/** 如果有必要，可以通过接口返回对应的路由表以及各种权限 */
+/** 如果有必要，可以通过接口返回对应的路由表以及各种权限
+ *  通过配置如
+      layout: { hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏 hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏 },
+    或者layout: false 
+      可以隐藏layout
+    
+ */
 export default [
   {
     path: '/',
@@ -15,6 +21,12 @@ export default [
                 '@/wrappers/auth',
             ],
          */
+  },
+  {
+    path: '/user/login',
+    title: '登录页',
+    exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
+    component: '@/pages/user/login',
   },
   { ...Admin },
   // {
