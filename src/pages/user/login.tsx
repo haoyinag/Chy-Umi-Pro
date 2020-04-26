@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import qs from 'qs';
 import { Form, Input, Button, Checkbox } from 'antd';
 
 import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
@@ -13,6 +14,24 @@ const layout = {
   wrapperCol: { span: 24 },
 };
 
+interface Info {
+  code: string;
+  password: string;
+  remember: boolean;
+  username: string;
+}
+
+const storageInfo: string | null = localStorage.getItem('userInfo');
+const Info = storageInfo
+  ? qs.parse(storageInfo)
+  : {
+      code: '',
+      password: '',
+      remember: false,
+      username: '',
+    };
+console.log(Info);
+
 export default () => {
   const [code, setCode] = useState();
 
@@ -22,15 +41,21 @@ export default () => {
     setCode(logo);
   };
 
-  /** 提交表单且数据验证成功后回调事件 */
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
-
   /** 提交表单且数据验证失败后回调事件 */
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
+
+  /** 提交表单且数据验证成功后回调事件 */
+  const onFinish = (values: any) => {
+    console.log('Success:', values);
+    if (values.remember) {
+      localStorage.setItem('userInfo', qs.stringify(values));
+    } else {
+      localStorage.removeItem('userInfo');
+    }
+  };
+
   return (
     <div
       className="login flex flex-column ali-center"
@@ -45,7 +70,7 @@ export default () => {
         {...layout}
         name="login-form"
         labelAlign="left"
-        initialValues={{ remember: true }}
+        initialValues={{ ...Info }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         className="login-form"
