@@ -1,6 +1,4 @@
-import request from './request';
-
-const api: any = request;
+import api from './request';
 
 const Methods = (method: string, url: string, params: any) => {
   return new Promise((resolve, reject) => {
