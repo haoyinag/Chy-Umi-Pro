@@ -3,6 +3,7 @@
   "scripts": {
     "start": "umi dev ANGSI_APP_ENV=dev",
     "build": "umi build ANGSI_APP_ENV=build",
+    "analyze": "cross-env ANALYZE=1 umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
@@ -24,10 +25,14 @@
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.1.1",
     "antd-dayjs-webpack-plugin": "^1.0.0",
+    "cross-env": "^7.0.2",
     "lint-staged": "^10.0.7",
+    "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
     "umi": "^3.1.1",
     "yorkie": "^2.0.0"
   }
