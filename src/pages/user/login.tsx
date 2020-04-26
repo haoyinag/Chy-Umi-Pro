@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { debounce } from 'lodash'; // 防抖
 import {
   history,
   LoginState,
@@ -94,7 +95,7 @@ const LoginPage: FC<PageProps> = ({ login }) => {
         name="login-form"
         labelAlign="left"
         initialValues={{ ...Info }}
-        onFinish={onFinish}
+        onFinish={debounce(onFinish, 500)}
         onFinishFailed={onFinishFailed}
         className="login-form"
       >
@@ -102,7 +103,7 @@ const LoginPage: FC<PageProps> = ({ login }) => {
           <TabPane tab="账号密码登录" key="1">
             <LoginFormItem
               code={code}
-              getPatternCode={() => getPatternCode()}
+              getPatternCode={debounce(() => getPatternCode(), 350)}
             />
           </TabPane>
         </Tabs>
