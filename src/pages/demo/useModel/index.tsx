@@ -26,7 +26,7 @@ const IndexPage: FC<PageProps> = ({ useModel }) => {
     });
   };
   return (
-    <div>
+    <div className="flex model">
       Hello {name}
       <br />
       <Button type="primary" onClick={() => onClick(1)}>
