@@ -29,6 +29,7 @@
     "scripts",
     "src/.umi/*",
     "webpack",
-    "jest"
+    "jest",
+    "template"
   ]
 }
