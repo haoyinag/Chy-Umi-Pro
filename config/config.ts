@@ -1,5 +1,10 @@
 import { defineConfig } from 'umi';
+
+//屏幕自适应--使用于移动端
+// const pxtoviewport = require("postcss-px-to-viewport");
 import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+
+// import webpackConfig from './webpack.config'
 
 import proxy from './proxy';
 
@@ -30,6 +35,16 @@ const config = defineConfig({
   antd: {
     dark: false, // 开启暗色主题
     compact: false, // 开启紧凑主题
+  },
+  analyze: {
+    analyzerMode: 'server',
+    analyzerPort: 8888,
+    openAnalyzer: true,
+    // generate stats file while ANALYZE_DUMP exist
+    generateStatsFile: false,
+    statsFilename: 'stats.json',
+    logLevel: 'info',
+    defaultSizes: 'parsed', // stat  // gzip
   },
   routes,
   /** 启用umi的layout插件
@@ -105,10 +120,31 @@ const config = defineConfig({
   // mpa:{} 切换渲染模式为 mpa=>为每个页面输出 html;为每个页面输出 html;
   /** 配置压缩器 terser 的配置项 */
   // terserOptions: {}
-  chainWebpack: config => {
+  extraPostCSSPlugins: [
+    //屏幕自适应--使用于移动端
+    // ******* 用的自己打开, 不要上传 *******
+    // pxtoviewport({
+    //   viewportWidth: 1920,
+    //   viewportHeight: 1080,
+    //   unitPrecision: 5,
+    //   viewportUnit: "vw",
+    //   selectorBlackList: [],
+    //   minPixelValue: 1,
+    //   mediaQuery: false,
+    //   exclude: []
+    // })
+  ],
+  chainWebpack: (config: any) => {
     /** dayjs替换momentjs */
     config.plugin('AntdDayjsWebpackPlugin').use(AntdDayjsWebpackPlugin);
+
+    config.module
+      .rule('stylus')
+      .test(/\.styl$/)
+      .use('style-loader!css-loader!stylus-loader')
+      .loader('style-loader!css-loader!stylus-loader');
     return config;
+    // return webpackConfig(config)
   },
 });
 
