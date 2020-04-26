@@ -1,4 +1,3 @@
-import Admin from './Admin';
 import Demo from './Demo';
 
 /** 如果有必要，可以通过接口返回对应的路由表以及各种权限
@@ -35,7 +34,6 @@ export default [
     component: '@/pages/User/Login',
   },
   { ...Demo },
-  { ...Admin },
   // {
   // path: '/admin',
   // // name: 'admin',
