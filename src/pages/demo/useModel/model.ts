@@ -5,7 +5,7 @@ export interface UseModelDemoState {
 }
 
 export interface UseModelDemoType {
-  namespace: 'useModel';
+  namespace: 'modelDemo';
   state: UseModelDemoState;
   effects: {
     query: Effect;
@@ -19,9 +19,9 @@ export interface UseModelDemoType {
 }
 
 const UseModelDemo: UseModelDemoType = {
-  namespace: 'useModel',
+  namespace: 'modelDemo',
   state: {
-    name: 'useModel',
+    name: 'modelDemo',
   },
   effects: {
     *query({ payload }, { call, put }: { call: any; put: any }): any {

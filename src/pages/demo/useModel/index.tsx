@@ -10,17 +10,17 @@ import {
 import { Button } from 'antd';
 
 interface PageProps extends ConnectProps {
-  useModel: UseModelDemoState;
+  modelDemo: UseModelDemoState;
   loading: boolean;
 }
 
-const IndexPage: FC<PageProps> = ({ useModel }) => {
-  const { name } = useModel;
+const IndexPage: FC<PageProps> = ({ modelDemo }) => {
+  const { name } = modelDemo;
   const dispatch = useDispatch();
 
   const onClick = (num: number) => {
     dispatch({
-      type: 'useModel/query',
+      type: 'modelDemo/query',
       payload:
         num === 1 ? { name: '哈哈，我改变了useModel' } : { name: 'useModel' },
     });
@@ -41,13 +41,13 @@ const IndexPage: FC<PageProps> = ({ useModel }) => {
 
 export default connect(
   ({
-    useModel,
+    modelDemo,
     loading,
   }: {
-    useModel: UseModelDemoState;
+    modelDemo: UseModelDemoState;
     loading: Loading;
   }) => ({
-    useModel,
-    loading: loading.models.useModel,
+    modelDemo,
+    loading: loading.models.modelDemo,
   }),
 )(IndexPage);
