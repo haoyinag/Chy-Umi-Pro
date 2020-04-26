@@ -2,6 +2,12 @@
   display: flex;
 }
 
+.flex-params(@jus,@ali) {
+  display: flex;
+  justify-content: @jus;
+  align-items: @ali;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -10,6 +16,22 @@
   justify-content: center;
 }
 
+.jus-around {
+  justify-content: space-around;
+}
+
+.jus-between {
+  justify-content: space-between;
+}
+
+.ali-start {
+  align-items: flex-start;
+}
+
 .ali-center {
   align-items: center;
+}
+
+.ali-end {
+  align-items: flex-end;
 }
