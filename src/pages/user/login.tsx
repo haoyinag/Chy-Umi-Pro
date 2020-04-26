@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { history } from 'umi';
 import qs from 'qs';
-import { Form, Input, Button, Checkbox } from 'antd';
 
-import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { Tabs, Form, Button, Checkbox } from 'antd';
+
+import LoginFormItem from './form';
 
 import logo from '@/assets/logo.png';
 import './login.less';
 
+const { TabPane } = Tabs;
 const bodyHeight: number = document.body.clientHeight;
-
 const layout = {
   labelCol: { span: 24 },
   wrapperCol: { span: 24 },
@@ -35,6 +36,11 @@ console.log(Info);
 
 export default () => {
   const [code, setCode] = useState();
+
+  /** tab切换 */
+  const onTabChange = (e: any) => {
+    console.log(e);
+  };
 
   /** 获取验证码 */
   const getPatternCode = () => {
@@ -67,7 +73,6 @@ export default () => {
         <img src={logo} alt="logo" />
         <div className="info">昂司美食</div>
       </div>
-
       <Form
         {...layout}
         name="login-form"
@@ -77,48 +82,14 @@ export default () => {
         onFinishFailed={onFinishFailed}
         className="login-form"
       >
-        <Form.Item
-          name="username"
-          rules={[{ required: true, message: '请输入用户名!' }]}
-        >
-          <Input
-            size="large"
-            placeholder="用户名"
-            prefix={<UserOutlined className="site-form-item-icon" />}
-          />
-        </Form.Item>
-
-        <Form.Item
-          name="password"
-          rules={[{ required: true, min: 6, message: '请至少输入6位数密码!' }]}
-        >
-          <Input.Password
-            size="large"
-            placeholder="至少6位数密码"
-            prefix={<LockOutlined className="site-form-item-icon" />}
-          />
-        </Form.Item>
-
-        <Form.Item
-          name="code"
-          className="flex"
-          rules={[{ required: true, message: '请输入验证码!' }]}
-        >
-          <Input
-            size="large"
-            placeholder="验证码"
-            prefix={<MailOutlined className="site-form-item-icon" />}
-            addonAfter={
-              <img
-                src={code || logo}
-                onClick={getPatternCode}
-                alt="logo"
-                width="100px"
-              />
-            }
-          />
-          {/* <img src={logo} alt="logo" width="50px" /> */}
-        </Form.Item>
+        <Tabs defaultActiveKey="1" onChange={onTabChange}>
+          <TabPane tab="账号密码登录" key="1">
+            <LoginFormItem
+              code={code}
+              getPatternCode={() => getPatternCode()}
+            />
+          </TabPane>
+        </Tabs>
 
         <Form.Item name="remember" valuePropName="checked">
           <Checkbox>记住我</Checkbox>
@@ -133,5 +104,3 @@ export default () => {
     </div>
   );
 };
-
-// "https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg"
