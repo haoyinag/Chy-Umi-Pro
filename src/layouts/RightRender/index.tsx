@@ -1,43 +1,47 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import { history } from 'umi';
 
-import { Button, Menu, Dropdown } from 'antd';
-import {
-  HeartTwoTone,
-  LogoutOutlined,
-  NodeIndexOutlined,
-  UserSwitchOutlined,
-} from '@ant-design/icons';
+import { Button, Dropdown } from 'antd';
+import { HeartTwoTone } from '@ant-design/icons';
+
+import RenderMenu from './RenderMenu';
+import RenderModal from './RenderModal';
 
 import styles from './right.less';
 
-const menu = () => {
-  return (
-    <Menu defaultSelectedKeys={['1']}>
-      <Menu.Item key="0" onClick={() => console.log(0)}>
-        <UserSwitchOutlined />
-        切换身份
-      </Menu.Item>
-      <Menu.Item key="1" onClick={e => history.push('/user/login')}>
-        <LogoutOutlined />
-        退出登录
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="3" disabled>
-        <NodeIndexOutlined />
-        切换门店
-      </Menu.Item>
-    </Menu>
-  );
-};
-
 export const RightRender = () => {
+  const [visible, setVisible] = useState(false);
+
+  const onMenuClick = (key: string) => {
+    console.log(key);
+    if (key === '0') {
+      setVisible(!visible);
+    } else {
+      history.push('/user/login');
+    }
+  };
+
+  const onModalOk = () => {
+    setVisible(!visible);
+  };
+
   return (
-    <Dropdown overlay={menu} placement="bottomRight" className={styles.main}>
-      <Button type="link">
-        <HeartTwoTone />
-        AngSi Me
-      </Button>
-    </Dropdown>
+    <Fragment>
+      <Dropdown
+        overlay={<RenderMenu onMenuClick={(e: string) => onMenuClick(e)} />}
+        placement="bottomRight"
+        className={styles.main}
+      >
+        <Button type="link">
+          <HeartTwoTone />
+          AngSi Me
+        </Button>
+      </Dropdown>
+      <RenderModal
+        visible={visible}
+        onOk={() => setVisible(!visible)}
+        onCancel={() => onModalOk()}
+      />
+    </Fragment>
   );
 };
