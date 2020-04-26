@@ -5,7 +5,7 @@ import React from 'react';
 import { RightRender } from '@/layouts';
 
 /** 本地utils、模块 */
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-small.png';
 import defaultSettings, { DefaultSettings } from '../config/defaultSettings';
 // import { queryCurrent } from './services/user';
 

@@ -16,6 +16,11 @@
   background-color: #fff;
 }
 
+#logo a{
+  display: flex;
+  justify-content: center;
+}
+
 /* .ant-pro-basicLayout {
   height: 100%;
 }
