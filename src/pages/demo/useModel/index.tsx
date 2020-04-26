@@ -15,7 +15,7 @@ interface PageProps extends ConnectProps {
   loading: boolean;
 }
 
-const IndexPage: FC<PageProps> = ({ modelDemo }) => {
+const UseModelPage: FC<PageProps> = ({ modelDemo }) => {
   const { name } = modelDemo;
   const dispatch = useDispatch();
 
@@ -53,4 +53,4 @@ export default connect(
     modelDemo,
     loading: loading.models.modelDemo,
   }),
-)(IndexPage);
+)(UseModelPage);

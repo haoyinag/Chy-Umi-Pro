@@ -20,13 +20,13 @@ export default {
       path: '/demo/use-model',
       name: 'model使用',
       icon: 'smile',
-      component: '@/pages/demo/useModel',
+      component: '@/pages/Demo/UseModel',
     },
     {
-      path: '/welcome/admin53',
-      // name: 'model使用ad',
+      path: '/demo/use-immer',
+      name: 'immer使用',
       icon: 'smile',
-      component: '@/pages/welcome/Admin.tsx',
+      component: '@/pages/Demo/UseImmer',
     },
   ],
 };
