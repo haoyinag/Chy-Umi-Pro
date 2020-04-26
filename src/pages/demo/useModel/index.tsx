@@ -6,6 +6,7 @@ import {
   connect,
   useDispatch,
 } from 'umi';
+import { PageHeaderWrapper } from '@ant-design/pro-layout';
 
 import { Button } from 'antd';
 
@@ -26,16 +27,18 @@ const IndexPage: FC<PageProps> = ({ modelDemo }) => {
     });
   };
   return (
-    <div className="flex model">
-      Hello {name}
-      <br />
-      <Button type="primary" onClick={() => onClick(1)}>
-        dispatch
-      </Button>
-      <Button type="primary" onClick={() => onClick(2)}>
-        重置
-      </Button>
-    </div>
+    <PageHeaderWrapper>
+      <div className="flex model">
+        Hello {name}
+        <br />
+        <Button type="primary" onClick={() => onClick(1)}>
+          dispatch
+        </Button>
+        <Button type="primary" onClick={() => onClick(2)}>
+          重置
+        </Button>
+      </div>
+    </PageHeaderWrapper>
   );
 };
 

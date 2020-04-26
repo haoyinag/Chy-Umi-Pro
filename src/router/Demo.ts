@@ -22,5 +22,11 @@ export default {
       icon: 'smile',
       component: '@/pages/demo/useModel',
     },
+    {
+      path: '/welcome/admin53',
+      // name: 'model使用ad',
+      icon: 'smile',
+      component: '@/pages/welcome/Admin.tsx',
+    },
   ],
 };
