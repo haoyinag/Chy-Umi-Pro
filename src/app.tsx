@@ -115,6 +115,8 @@ export function onRouteChange({
 
 /** 修改交给 react-dom 渲染时的根组件 */
 // export function rootContainer(container,args:{routes，全量路由配置,plugin，运行时插件机制，history，history 实例}) {
-// 比如用于在外面包一个 Provider
-//     return React.createElement(ThemeProvider, null, container);
-//   }
+export function rootContainer(container: any) {
+  // 比如用于在外面包一个 Provider
+  const ThemeProvider = () => <div id="root-out">{container}</div>;
+  return React.createElement(ThemeProvider, null, container);
+}
