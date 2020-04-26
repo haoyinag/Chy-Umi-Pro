@@ -1,0 +1,112 @@
+/* 设置宽高 */
+setWH($width = 100%, $height = 100%) {
+    width: $width;
+    height: $height;
+}
+
+/* 设置行高与高度 */
+setHeight($height) {
+    height: $height;
+    line-height: $height;
+}
+
+/* 设置背景图片居中 */
+setBgImgCenter($url, $size = contain) {
+    background-image: url($url);
+    background-size: $size;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 置灰，禁用事件 */
+setDisable() {
+    color: $black_3;
+    pointer-events: none;
+}
+
+/* btn边框阴影 */
+boxShadow() {
+    box-shadow: inset 1px 1px 1px #fff;
+    border: 1px solid $black_1;
+}
+
+/* 浮动清除 */
+clearFix() {
+    &::before, &::after {
+        content: '';
+        display: table;
+        height: 0;
+        font-size: 0;
+        overflow: hidden;
+        clear: both;
+    }
+}
+
+/* 字体设置 */
+setFont($size = 1.3rem, $color = black, $textAlign = left, $fontWeight = normal) {
+    font-size: $size;
+    color: $color;
+    text-align: $textAlign;
+    font-weight: $fontWeight;
+}
+
+/* 定位 */
+setPosition($pos = absolute, $top = 0, $left = 0) {
+    position: $pos;
+    top: $top;
+    left: $left;
+}
+
+/* margin + transform 居中 */
+setCenterUseTransform() {
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+/* position 居中 */
+setCenterUsePosition() {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/* flex 布局设置，默认竖列水平垂直居中 */
+setPosUseFlex($direction = column, $justifyCont = center, $align-items = center, $wrap = initial) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyCont;
+    align-items: $align-items;
+    flex-wrap: $wrap;
+}
+
+/* flex 布局设置，所有默认 */
+setPosUseFlexInit($direction = initial, $justifyCont = initial, $align-items = initial, $wrap = initial) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyCont;
+    align-items: $align-items;
+    flex-wrap: $wrap;
+}
+
+/* 设置字体单行文字溢出显示省略号 */
+setEllipsisOne() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 设置字体多行文字溢出显示省略号 */
+setEllipsisMore($count = 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $count;
+    overflow: hidden;
+} 
+/*
+html使用
+class='ellipsis-3' => setEllipsisMore(3) => ...-webkit-line-clamp: 3;...
+*/
