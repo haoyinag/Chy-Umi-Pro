@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { history } from 'umi';
 import qs from 'qs';
 import { Form, Input, Button, Checkbox } from 'antd';
 
@@ -54,6 +55,7 @@ export default () => {
     } else {
       localStorage.removeItem('userInfo');
     }
+    history.push('/');
   };
 
   return (
