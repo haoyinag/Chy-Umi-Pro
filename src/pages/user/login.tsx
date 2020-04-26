@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
-import { history } from 'umi';
+import React, { FC } from 'react';
+import {
+  history,
+  LoginState,
+  ConnectProps,
+  Loading,
+  connect,
+  useDispatch,
+} from 'umi';
 import qs from 'qs';
 
 import { Tabs, Form, Button, Checkbox } from 'antd';
@@ -23,6 +30,11 @@ interface Info {
   username: string;
 }
 
+interface PageProps extends ConnectProps {
+  login: LoginState;
+  loading: boolean;
+}
+
 const storageInfo: string | null = localStorage.getItem('userInfo');
 const Info = storageInfo
   ? qs.parse(storageInfo)
@@ -34,8 +46,10 @@ const Info = storageInfo
     };
 console.log(Info);
 
-export default () => {
-  const [code, setCode] = useState();
+const LoginPage: FC<PageProps> = ({ login }) => {
+  const { code } = login;
+  /** hooks必须放在函数组件内部的第一层 */
+  const dispatch = useDispatch();
 
   /** tab切换 */
   const onTabChange = (e: any) => {
@@ -44,8 +58,10 @@ export default () => {
 
   /** 获取验证码 */
   const getPatternCode = () => {
-    console.log('getPatternCode');
-    setCode(logo);
+    dispatch({
+      type: 'login/queryCode',
+      payload: logo,
+    });
   };
 
   /** 提交表单且数据验证失败后回调事件 */
@@ -104,3 +120,10 @@ export default () => {
     </div>
   );
 };
+
+export default connect(
+  ({ login, loading }: { login: LoginState; loading: Loading }) => ({
+    login,
+    loading: loading.models.login,
+  }),
+)(LoginPage);
