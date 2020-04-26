@@ -1,3 +1,8 @@
-
 @import './utils/styles/flex.less';
-@import './utils/styles/flex.styl';
+/* @import './utils/styles/flex.styl'; */
+
+#root,
+#root-out {
+  width: 100%;
+  height: 100%;
+}
