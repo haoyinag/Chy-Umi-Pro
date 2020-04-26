@@ -1,8 +1,26 @@
 @import './utils/styles/flex.less';
 /* @import './utils/styles/flex.styl'; */
 
+/* #root {
+  background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
+  background-repeat: no-repeat;
+  background-position: center 110px;
+  background-size: 100%;
+} */
+
 #root,
-#root-out {
+#root-out,
+.ant-layout {
   width: 100%;
   height: 100%;
+  background-color: #fff;
 }
+
+/* .ant-pro-basicLayout {
+  height: 100%;
+}
+
+#root .ant-layout,
+#root .ant-layout .ant-layout {
+  flex: unset;
+} */
