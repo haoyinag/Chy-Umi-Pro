@@ -10,9 +10,8 @@ import Demo from './Demo';
 export default [
   {
     path: '/',
-    name: '首页',
     exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
-    component: '@/pages/index',
+    component: '@/pages/Index',
     // routes 配置子路由，通常在需要为多个路径增加 layout 组件时使用
     // redirect 配置路由跳转
     // wrappers 配置路由的高阶组件封装。

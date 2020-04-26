@@ -7,7 +7,7 @@ for (let q = 0; q < 100; q++) {
 }
 
 export default () => (
-  <PageHeaderWrapper content="模块说明">
+  <PageHeaderWrapper title="首页" content="模块说明">
     <div className="Content">
       {arr.map((item: number) => {
         return (
