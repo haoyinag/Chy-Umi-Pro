@@ -1,3 +1,5 @@
-import request from './request'
+import request from './request';
 
-export default request
+export { queryUsers } from './user';
+
+export default request;
