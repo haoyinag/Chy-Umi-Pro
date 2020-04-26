@@ -1,5 +1,7 @@
 import { Effect, ImmerReducer, Subscription } from 'umi';
 
+import { queryUsers } from '@/services';
+
 export interface LoginState {
   code: string;
 }
@@ -25,6 +27,13 @@ const Login: LoginType = {
   },
   effects: {
     *queryCode({ payload }, { call, put }: { call: any; put: any }): any {
+      try {
+        const response = yield call(queryUsers);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+
       yield put({
         type: 'getCode',
         payload: payload,
