@@ -28,5 +28,11 @@ export default {
       icon: 'smile',
       component: '@/pages/Demo/UseImmer',
     },
+    {
+      path: '/demo/use-debouce',
+      name: 'debouce使用',
+      icon: 'smile',
+      component: '@/pages/Demo/UseDebounce',
+    },
   ],
 };
