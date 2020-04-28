@@ -45,7 +45,12 @@ export default ({
           placeholder="验证码"
           prefix={<MailOutlined className="site-form-item-icon" />}
           addonAfter={
-            <img src={code} onClick={getPatternCode} alt="logo" width="100px" />
+            <img
+              src={code}
+              onClick={getPatternCode}
+              alt="logo"
+              style={{ width: '100px', cursor: 'pointer' }}
+            />
           }
         />
       </Form.Item>

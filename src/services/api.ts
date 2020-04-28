@@ -1,14 +1,16 @@
-import api from './request';
+import request from './interceptors';
 
 const Methods = (method: string, url: string, params: any) => {
   return new Promise((resolve, reject) => {
-    api[method](url, {
-      params,
+    request[method](url, {
+      ...params,
     })
       .then((response: any) => {
         resolve(response);
       })
       .catch((error: any) => {
+        console.log(error);
+
         reject(error);
       });
   });

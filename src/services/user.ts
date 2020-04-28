@@ -3,7 +3,7 @@ import { request } from 'umi';
 import { Get } from './api';
 
 export async function queryUsers() {
-  return Get('/api/users');
+  return Get('/ap11i/users');
 }
 
 export async function queryCurrent() {

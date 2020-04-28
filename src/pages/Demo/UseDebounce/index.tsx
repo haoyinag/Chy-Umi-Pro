@@ -37,6 +37,11 @@ export default () => {
     const num = count + 1;
     setCount(num);
   };
+
+  const change = debounce((val: string) => {
+    console.log(val);
+  }, 500);
+
   return (
     <div>
       <Button type="primary" onClick={debounce(() => onClick(), 350)}>
@@ -44,6 +49,15 @@ export default () => {
       </Button>
       {'-----------------'}
       <UseDebounceClass />
+      {'-----------------'}
+      输入框防抖：
+      <input
+        type="text"
+        className="test"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          change(e.target.value)
+        }
+      />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 export default {
-  // title: 'Demo页面',
   // path: '/demo', // 如果一级路由有path字段，最好有对应的component负责渲染，否则面包屑导航不精确
   // component: '@/pages/Demo',
   icon: 'crown',
@@ -19,20 +18,30 @@ export default {
     {
       path: '/demo/use-model',
       name: 'model使用',
+      title: 'model使用',
       icon: 'smile',
       component: '@/pages/Demo/UseModel',
     },
     {
       path: '/demo/use-immer',
       name: 'immer使用',
+      title: 'immer使用',
       icon: 'smile',
       component: '@/pages/Demo/UseImmer',
     },
     {
       path: '/demo/use-debouce',
       name: 'debouce使用',
+      title: 'debouce使用',
       icon: 'smile',
       component: '@/pages/Demo/UseDebounce',
+    },
+    {
+      path: '/demo/use-reducer',
+      name: '购物车--性能优化',
+      title: '购物车--性能优化',
+      icon: 'smile',
+      component: '@/pages/Demo/UseReducer',
     },
   ],
 };

@@ -7,8 +7,9 @@
 import React, { useState } from 'react';
 import { produce } from 'immer';
 
-import { Button } from 'antd';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
+
+import Test from './Test';
 
 let arr: any[] = [];
 for (let q = 0; q < 100; q++) {
@@ -35,26 +36,7 @@ export default ({}) => {
 
   return (
     <PageHeaderWrapper>
-      {list.map((item: any, index: number) => {
-        if (typeof item === 'number') {
-          return (
-            <div key={index} className="item">
-              {item}
-            </div>
-          );
-        } else {
-          return (
-            <Button
-              key={index}
-              onClick={() => onChangeItem(index)}
-              className="item"
-              type="primary"
-            >
-              {item.name}
-            </Button>
-          );
-        }
-      })}
+      <Test list={list} onChangeItem={(e: number) => onChangeItem(e)} />
     </PageHeaderWrapper>
   );
 };
