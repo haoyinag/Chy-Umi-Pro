@@ -37,4 +37,4 @@ declare let ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
   | 'site'
   | undefined;
 
-declare const ANGSI_APP_ENV: 'test' | 'dev' | 'pre' | false;
+declare const CHY_APP_ENV: 'test' | 'dev' | 'pre' | false;

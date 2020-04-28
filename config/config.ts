@@ -9,7 +9,7 @@ import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import proxy from './proxy';
 
 const env = process.env.NODE_ENV;
-// const { ANGSI_APP_ENV } = process.env;
+// const { CHY_APP_ENV } = process.env;
 // import logo from '/src/asset/logo.svg';
 
 /** 把路由文件放在src下是为了方便按模块拆分组装路由表，而且方便通过请求配置access */
@@ -53,7 +53,7 @@ const config = defineConfig({
    *  开启之后，会自动读取当前的·routes·配置
    */
   layout: {
-    name: 'Angsi Design Pro',
+    name: 'Chy Design Pro',
     // logo 在这里配置不生效，要在app.tsx配置
     // theme: 'pro', // 指定 Layout 主题, tech 仅在蚂蚁内部框架 Bigfish 中生效
     /** 是否开始国际化配置。开启后路由里配置的菜单名会被当作菜单名国际化的 key，
