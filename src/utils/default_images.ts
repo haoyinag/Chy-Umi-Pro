@@ -6,3 +6,5 @@ export const Img404 /** 页面丢失/不存在 */ =
 
 export const Img500 /** 服务器错误 */ =
   'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PRRMRY9cMPIAAAAAAAAAAABkARQnAQ';
+
+export const Img404Small = require('../assets/404.png');
