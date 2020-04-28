@@ -4,6 +4,8 @@ import { Form, Input } from 'antd';
 
 import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 
+import { Img404Small } from '@/utils/default_images';
+
 export default ({
   code,
   getPatternCode,
@@ -37,19 +39,27 @@ export default ({
 
       <Form.Item
         name="code"
-        className="code"
         rules={[{ required: true, message: '请输入验证码!' }]}
       >
         <Input
           size="large"
+          className="code"
           placeholder="验证码"
           prefix={<MailOutlined className="site-form-item-icon" />}
           addonAfter={
             <img
               src={code}
               onClick={getPatternCode}
+              onError={(e: React.ChangeEvent<HTMLImageElement>) => {
+                // e.target.onerror = null; // 只处理一次
+                e.target.src = `${Img404Small}`;
+              }}
               alt="验证码"
-              style={{ height: '100%', cursor: 'pointer' }}
+              style={{
+                // maxWidth: '100px',
+                maxHeight: '40px',
+                cursor: 'pointer',
+              }}
             />
           }
         />
