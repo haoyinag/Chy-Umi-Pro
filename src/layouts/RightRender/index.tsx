@@ -34,7 +34,7 @@ export const RightRender = () => {
       >
         <Button type="link">
           <HeartTwoTone />
-          AngSi Me
+          ChenHaoyin
         </Button>
       </Dropdown>
       <RenderModal

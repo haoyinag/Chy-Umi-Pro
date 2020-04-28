@@ -10,7 +10,6 @@ import proxy from './proxy';
 
 const env = process.env.NODE_ENV;
 // const { CHY_APP_ENV } = process.env;
-// import logo from '/src/asset/logo.svg';
 
 /** 把路由文件放在src下是为了方便按模块拆分组装路由表，而且方便通过请求配置access */
 import routes from '../src/router';

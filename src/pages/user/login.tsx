@@ -14,7 +14,7 @@ import { Tabs, Form, Button, Checkbox } from 'antd';
 
 import LoginFormItem from './form';
 
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-small.png';
 import './login.less';
 
 const { TabPane } = Tabs;
@@ -88,7 +88,7 @@ const LoginPage: FC<PageProps> = ({ login }) => {
     >
       <div className="logo">
         <img src={logo} alt="logo" />
-        <div className="info">昂司美食</div>
+        {/* <div className="info">昂司美食</div> */}
       </div>
       <Form
         {...layout}

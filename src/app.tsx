@@ -15,7 +15,7 @@ import defaultSettings, { DefaultSettings } from '../config/defaultSettings';
 /** layout配置/操作，需要在配置文件开启layout */
 export let layout: any = {
   logo, // 产品 Logo
-  name: '昂司打印', // 侧边栏头部产品名，默认值为包名
+  name: '后台管理系统', // 侧边栏头部产品名，默认值为包名
   // locale: true,
   // pure: true, // 是否删除框架layout
   menu: {

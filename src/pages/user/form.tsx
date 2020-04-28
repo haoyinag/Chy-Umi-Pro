@@ -37,7 +37,7 @@ export default ({
 
       <Form.Item
         name="code"
-        className="flex"
+        className="code"
         rules={[{ required: true, message: '请输入验证码!' }]}
       >
         <Input
@@ -48,8 +48,8 @@ export default ({
             <img
               src={code}
               onClick={getPatternCode}
-              alt="logo"
-              style={{ width: '100px', cursor: 'pointer' }}
+              alt="验证码"
+              style={{ height: '100%', cursor: 'pointer' }}
             />
           }
         />
