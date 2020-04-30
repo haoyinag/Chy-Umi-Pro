@@ -1,18 +1,12 @@
 import React, { FC } from 'react';
 import { debounce } from 'lodash'; // 防抖
-import {
-  history,
-  LoginState,
-  ConnectProps,
-  Loading,
-  connect,
-  useDispatch,
-} from 'umi';
+import { history, ConnectProps, Loading, connect, useDispatch } from 'umi';
 import qs from 'qs';
 
 import { Tabs, Form, Button, Checkbox } from 'antd';
 
 import LoginFormItem from './form';
+import { LoginState } from './model';
 
 import logo from '@/assets/logo.png';
 import './login.less';
