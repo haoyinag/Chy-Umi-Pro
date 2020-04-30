@@ -42,7 +42,8 @@ const Info = storageInfo
 console.log(Info);
 
 const LoginPage: FC<PageProps> = ({ login }) => {
-  const { code } = login;
+  const { code } = Info;
+
   /** hooks必须放在函数组件内部的第一层 */
   // const dispatch = useDispatch();
 

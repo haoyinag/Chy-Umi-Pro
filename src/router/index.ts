@@ -46,7 +46,7 @@ const router: any[] = [
   { ...Task },
 
   /** 新增路由表放在demo路由前面，官方控件有莫名的bug */
-  // { ...Demo }
+  { ...Demo },
   // {
   // path: '/admin',
   // // name: 'admin',
@@ -79,8 +79,8 @@ const router: any[] = [
   // },
 ];
 
-if (process.env.NODE_ENV === 'development') {
-  router.push(Demo);
-}
+// if (process.env.NODE_ENV === 'development') {
+//   router.push(Demo);
+// }
 
 export default router;
