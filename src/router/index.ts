@@ -15,13 +15,13 @@ const router: any[] = [
     name: '首页', // 如果添加了name属性，会在路由表出现对应的路由item
     // redirect: "/index",
     exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
-    component: '@/pages/Index',
+    component: '../pages/Index',
     // routes 配置子路由，通常在需要为多个路径增加 layout 组件时使用
     // redirect 配置路由跳转
     // wrappers 配置路由的高阶组件封装。
     /**
          * wrappers: [
-                '@/wrappers/auth',
+                '../wrappers/auth',
             ],
          */
   },
@@ -29,7 +29,7 @@ const router: any[] = [
     path: '/404',
     title: '页面丢失',
     exact: true,
-    component: '@/pages/Page404', // () => import(/* webpackChunkName: "about" */ "../views/404.vue")
+    component: '../pages/Page404', // () => import(/* webpackChunkName: "about" */ "../views/404.vue")
   },
   {
     path: '/user/login',
@@ -41,7 +41,7 @@ const router: any[] = [
       hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
     },
     exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
-    component: '@/pages/User/Login',
+    component: '../pages/User/Login',
   },
   { ...Task },
 
