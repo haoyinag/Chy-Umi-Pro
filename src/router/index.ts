@@ -32,18 +32,18 @@ const router: any[] = [
     component: '../pages/Page404', // () => import(/* webpackChunkName: "about" */ "../views/404.vue")
   },
   { ...Task },
-  {
-    path: '/user/login',
-    // name: '登录页',
-    title: '登录页',
-    icon: 'user',
-    layout: {
-      hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏
-      hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
-    },
-    exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
-    component: '../pages/User/login',
-  },
+  // {
+  //   path: '/user/login',
+  //   // name: '登录页',
+  //   title: '登录页',
+  //   icon: 'user',
+  //   layout: {
+  //     hideNav: true, // 是否当前路由隐藏导航头，默认不隐藏
+  //     hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
+  //   },
+  //   exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
+  //   component: '../pages/User/login',
+  // },
 
   /** 新增路由表放在demo路由前面，官方控件有莫名的bug */
   // { ...Demo }
