@@ -8,7 +8,7 @@ import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 
 import proxy from './proxy';
 
-// const env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
 // const { ANGSI_APP_ENV } = process.env;
 // import logo from '/src/asset/logo.svg';
 
@@ -19,9 +19,9 @@ const config = defineConfig({
   // title: 'site.title',
   hash: true,
   /** base:如果生产环境也是/，页面会白屏 */
-  base: './', // env === 'development' ? '/' : './',
+  base: env === 'development' ? '/' : './',
   history: { type: 'hash' },
-  publicPath: '/',
+  publicPath: './',
   favicon: '/public/favicon.ico',
   // mock: false, // mock开关
   /** 开启dva */
