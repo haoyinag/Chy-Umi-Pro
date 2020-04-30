@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import qs from 'qs';
 import { debounce } from 'lodash'; // 防抖
-import { history, ConnectProps } from 'umi';
+import { history, ConnectProps, Loading, connect, useDispatch } from 'umi';
 
 import { Tabs, Form, Button, Checkbox } from 'antd';
 
@@ -39,10 +39,10 @@ const Info = storageInfo
       remember: false,
       username: '',
     };
-console.log(Info);
 
 const LoginPage: FC<PageProps> = ({ login }) => {
-  const { code } = Info;
+  const dispatch = useDispatch();
+  const { code } = login;
 
   /** hooks必须放在函数组件内部的第一层 */
   // const dispatch = useDispatch();
@@ -54,10 +54,10 @@ const LoginPage: FC<PageProps> = ({ login }) => {
 
   /** 获取验证码 */
   const getPatternCode = () => {
-    // dispatch({
-    //   type: 'login/queryCode',
-    //   payload: logo,
-    // });
+    dispatch({
+      type: 'login/queryCode',
+      payload: logo,
+    });
   };
 
   /** 提交表单且数据验证失败后回调事件 */
@@ -117,10 +117,9 @@ const LoginPage: FC<PageProps> = ({ login }) => {
   );
 };
 
-export default LoginPage;
-//  connect(
-//   ({ login, loading }: { login: LoginState; loading: Loading }) => ({
-//     login,
-//     loading: loading.models.login,
-//   }),
-// )(LoginPage);
+export default connect(
+  ({ login, loading }: { login: LoginState; loading: Loading }) => ({
+    login,
+    loading: loading.models.login,
+  }),
+)(LoginPage);
