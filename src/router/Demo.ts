@@ -16,18 +16,18 @@ export default {
   },
   routes: [
     {
-      path: '/demo/use-model',
-      name: 'model使用',
-      title: 'model使用',
-      icon: 'smile',
-      component: '@/pages/Demo/UseModel',
-    },
-    {
       path: '/demo/use-immer',
       name: 'immer使用',
       title: 'immer使用',
       icon: 'smile',
       component: '@/pages/Demo/UseImmer',
+    },
+    {
+      path: '/demo/use-model',
+      name: 'model使用',
+      title: 'model使用',
+      icon: 'smile',
+      component: '@/pages/Demo/UseModel',
     },
     {
       path: '/demo/use-debouce',
