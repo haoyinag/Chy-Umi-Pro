@@ -41,7 +41,7 @@ const router: any[] = [
       hideMenu: true, // 是否当前路由隐藏左侧菜单，默认不隐藏
     },
     exact: true, // 表示是否严格匹配，即 location 是否和 path 完全对应上
-    component: '@/pages/User/Login.tsx',
+    component: '@/pages/User/login',
   },
   { ...Task },
 
