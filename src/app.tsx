@@ -19,6 +19,7 @@ export let layout: any = {
   // locale: true,
   // pure: true, // 是否删除框架layout
   // menu: {
+  /** 如果开启，需要有对应的src/locals/xxx.ts语言文件匹配 */
   //   locale: true,
   //   defaultOpenAll: false,
   // },
