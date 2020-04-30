@@ -19,9 +19,9 @@ const config = defineConfig({
   // title: 'site.title',
   hash: true,
   /** base:如果生产环境也是/，页面会白屏 */
-  base: env === 'development' ? '/' : './',
+  base: '/',
   history: { type: 'hash' },
-  publicPath: './',
+  publicPath: env === 'development' ? '/' : './',
   favicon: '/public/favicon.ico',
   // mock: false, // mock开关
   /** 开启dva */
@@ -59,7 +59,7 @@ const config = defineConfig({
     /** 是否开始国际化配置。开启后路由里配置的菜单名会被当作菜单名国际化的 key，
      * 插件会去 locales 文件中查找 menu.[key]对应的文案，默认值为改 key。
      * 该功能需要配置 @umijs/plugin-locale 使用 */
-    locale: true,
+    // locale: true,
   },
   /** 国际化--构建式配置，src/locals是约定式配置*/
   locale: {
