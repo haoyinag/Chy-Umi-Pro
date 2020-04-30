@@ -1,24 +1,5 @@
-import { Effect, ImmerReducer, Subscription } from 'umi';
-
 import { queryUsers } from '@/services';
-
-export interface LoginState {
-  code: string;
-}
-
-export interface LoginType {
-  namespace: 'login';
-  state: LoginState;
-  effects: {
-    queryCode: Effect;
-  };
-  reducers: {
-    // getCode: Reducer<LoginState>;
-    // 启用 immer 之后
-    getCode: ImmerReducer<LoginState>;
-  };
-  subscriptions: { setup: Subscription };
-}
+import { LoginType } from './type';
 
 const Login: LoginType = {
   namespace: 'login',
