@@ -30,7 +30,7 @@ const RenderMenu: FC<PageProps> = ({ onMenuClick }) => {
       <Menu.Divider />
       <Menu.Item key="3" disabled>
         <NodeIndexOutlined />
-        其他操作
+        切换门店
       </Menu.Item>
     </Menu>
   );

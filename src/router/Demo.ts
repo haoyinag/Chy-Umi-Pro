@@ -37,11 +37,11 @@ export default {
       component: '@/pages/Demo/UseDebounce',
     },
     {
-      path: '/demo/use-reducer',
+      path: '/demo/use-hooks',
       name: '购物车--性能优化',
       title: '购物车--性能优化',
       icon: 'smile',
-      component: '@/pages/Demo/UseReducer',
+      component: '@/pages/Demo/UseHooks',
     },
   ],
 };

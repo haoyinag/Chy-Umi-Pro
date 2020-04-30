@@ -9,7 +9,8 @@ import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import proxy from './proxy';
 
 const env = process.env.NODE_ENV;
-// const { CHY_APP_ENV } = process.env;
+// const { ANGSI_APP_ENV } = process.env;
+// import logo from '/src/asset/logo.svg';
 
 /** 把路由文件放在src下是为了方便按模块拆分组装路由表，而且方便通过请求配置access */
 import routes from '../src/router';
@@ -52,7 +53,7 @@ const config = defineConfig({
    *  开启之后，会自动读取当前的·routes·配置
    */
   layout: {
-    name: 'Chy Design Pro',
+    name: 'Angsi Design Pro',
     // logo 在这里配置不生效，要在app.tsx配置
     // theme: 'pro', // 指定 Layout 主题, tech 仅在蚂蚁内部框架 Bigfish 中生效
     /** 是否开始国际化配置。开启后路由里配置的菜单名会被当作菜单名国际化的 key，
@@ -61,15 +62,15 @@ const config = defineConfig({
     locale: true,
   },
   /** 国际化--构建式配置，src/locals是约定式配置*/
-  // locale: {
-  //      title:true, // 标题国际化.在项目中配置的 title 及路由中的 title 可直接使用国际化 key，自动被转成对应语言的文案
-  //     default: 'zh-CN', // 默认语言，当检测不到具体语言时，展示 default 中指定的语言
-  //     // default true, when it is true, will use `navigator.language` overwrite default
-  //     antd: true, // 开启后，支持 antd 国际化
-  //     baseNavigator: true, // 开启浏览器语言检测
-  //     baseSeparator: '-', // 国家（lang） 与 语言（language） 之间的分割符
-  //      ...
-  // },
+  locale: {
+    title: true, // 标题国际化.在项目中配置的 title 及路由中的 title 可直接使用国际化 key，自动被转成对应语言的文案
+    default: 'zh-CN', // 默认语言，当检测不到具体语言时，展示 default 中指定的语言
+    // default true, when it is true, will use `navigator.language` overwrite default
+    antd: true, // 开启后，支持 antd 国际化
+    baseNavigator: true, // 开启浏览器语言检测
+    baseSeparator: '-', // 国家（lang） 与 语言（language） 之间的分割符
+    //  ...
+  },
   /** html在head标签中新增的额外脚本，js文件地址或者表达式或者json：{ src: '/foo.js', defer: true },
       { content: `alert('你好');`, charset: 'utf-8' }, */
   headScripts: [`console.log("页面加载");`],

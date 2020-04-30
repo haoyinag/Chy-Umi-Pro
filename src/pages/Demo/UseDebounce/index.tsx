@@ -3,7 +3,15 @@ import { debounce } from 'lodash';
 
 import { Button } from 'antd';
 
-class UseDebounceClass extends PureComponent<any, any> {
+interface State {
+  count: number;
+}
+
+interface Props {
+  [key: string]: any;
+}
+
+class UseDebounceClass extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {

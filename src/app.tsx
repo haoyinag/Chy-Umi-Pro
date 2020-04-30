@@ -7,15 +7,15 @@ import { RightRender } from '@/layouts';
 
 /** 本地utils、模块 */
 import logo from '@/assets/logo-small.png';
+import { getRoutePathMap } from '@/utils/getMap';
 import defaultSettings, { DefaultSettings } from '../config/defaultSettings';
-// import { queryCurrent } from './services/user';
 
 /** const/let声明 */
 /** 运行时配置文件，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。 */
 /** layout配置/操作，需要在配置文件开启layout */
 export let layout: any = {
   logo, // 产品 Logo
-  name: '后台管理系统', // 侧边栏头部产品名，默认值为包名
+  name: '昂司打印', // 侧边栏头部产品名，默认值为包名
   // locale: true,
   // pure: true, // 是否删除框架layout
   menu: {
@@ -101,6 +101,20 @@ export function onRouteChange({
 }) {
   // 页面title配置
   document.title = '昂司打印后台管理系统';
+  // console.log(location, routes);
+  try {
+    const { pathname } = location;
+    const patern = getRoutePathMap(routes).filter(
+      (path: string) => path === pathname,
+    );
+    /** 地址匹配不是跳转404 */
+    if (patern.length === 0) {
+      history.push('/404');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
   // if (matchedRoutes.length) {
   //   console.log(location.pathname);
   //   document.title = matchedRoutes[matchedRoutes.length - 1].route.title || "";
