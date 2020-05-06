@@ -8,10 +8,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
+  }, 
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
       "prettier --write"
