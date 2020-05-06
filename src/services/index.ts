@@ -1,5 +1,5 @@
-import request from './interceptors';
+import request from "./interceptors";
 
-export { queryUsers } from './user';
+export { queryUsers } from "./user";
 
 export default request;

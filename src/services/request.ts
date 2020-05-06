@@ -1,13 +1,13 @@
-import request from 'umi-request';
+import request from "umi-request";
 
-import { message } from 'antd';
+import { message } from "antd";
 
 // request interceptor, change url or options.
 request.interceptors.request.use((url, options) => {
-  message.loading({ content: 'Loading...', duration: 0 });
+  message.loading({ content: "Loading...", duration: 0 });
   return {
     url: `${url}`,
-    options: { ...options, interceptors: true },
+    options: { ...options, interceptors: true }
   };
 });
 
@@ -16,10 +16,10 @@ request.interceptors.request.use(
   (url, options) => {
     return {
       url: `${url}`,
-      options: { ...options, interceptors: true },
+      options: { ...options, interceptors: true }
     };
   },
-  { global: true },
+  { global: true }
 );
 
 // response interceptor, chagne response
@@ -32,14 +32,14 @@ request.interceptors.response.use((response, options) => {
 request.interceptors.response.use(response => {
   console.log(response);
   const codeMapsError: any = {
-    404: '无请求地址。',
-    502: '网关错误。',
-    503: '服务不可用，服务器暂时过载或维护。',
-    504: '网关超时。',
+    404: "无请求地址。",
+    502: "网关错误。",
+    503: "服务不可用，服务器暂时过载或维护。",
+    504: "网关超时。"
   };
   setTimeout(() => {
     message.destroy();
-    response.status === 200 && message.success('请求成功');
+    response.status === 200 && message.success("请求成功");
     response.status !== 200 && message.error(codeMapsError[response.status]);
   }, 350);
   return response;
@@ -51,7 +51,7 @@ request.interceptors.response.use(async response => {
   console.log(data);
 
   if (data && data.NOT_LOGIN) {
-    location.href = '登录url';
+    location.href = "登录url";
   }
   return response;
 });

@@ -1,11 +1,11 @@
-import { Effect, ImmerReducer, Subscription } from 'umi';
+import { Effect, ImmerReducer, Subscription } from "umi";
 
 export interface ChangeUserState {
   name: string;
 }
 
 export interface ChangeUserType {
-  namespace: 'changeUser';
+  namespace: "changeUser";
   state: ChangeUserState;
   effects: {
     query: Effect;
@@ -19,14 +19,14 @@ export interface ChangeUserType {
 }
 
 const ChangeUser: ChangeUserType = {
-  namespace: 'changeUser',
+  namespace: "changeUser",
   state: {
-    name: 'changeUser',
+    name: "changeUser",
   },
   effects: {
     *query({ payload }, { call, put }: { call: any; put: any }): any {
       yield put({
-        type: 'save',
+        type: "save",
         payload: payload.name,
       });
     },
@@ -46,11 +46,11 @@ const ChangeUser: ChangeUserType = {
   subscriptions: {
     setup({ dispatch, history }: { dispatch: any; history: any }) {
       return history.listen(({ pathname }: { pathname: any }) => {
-        console.log(pathname);
+        // console.log(pathname);
 
-        if (pathname === '/') {
+        if (pathname === "/") {
           dispatch({
-            type: 'query',
+            type: "query",
           });
         }
       });

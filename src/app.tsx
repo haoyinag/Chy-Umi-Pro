@@ -1,21 +1,21 @@
 /** 库 */
-import React from 'react';
-import { history } from 'umi';
+import React from "react";
+import { history } from "umi";
 
 /** 组件--antd优先 */
-import { RightRender } from '@/layouts';
+import { RightRender } from "@/layouts";
 
 /** 本地utils、模块 */
-import logo from '@/assets/logo-small.png';
-import { getRoutePathMap } from '@/utils/getMap';
-import defaultSettings, { DefaultSettings } from '../config/defaultSettings';
+import logo from "@/assets/logo-small.png";
+import { getRoutePathMap } from "@/utils/getMap";
+import defaultSettings, { DefaultSettings } from "../config/defaultSettings";
 
 /** const/let声明 */
 /** 运行时配置文件，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。 */
 /** layout配置/操作，需要在配置文件开启layout */
 export let layout: any = {
   logo, // 产品 Logo
-  name: '昂司打印', // 侧边栏头部产品名，默认值为包名
+  name: "昂司打印", // 侧边栏头部产品名，默认值为包名
   // locale: true,
   // pure: true, // 是否删除框架layout
   // menu: {
@@ -60,7 +60,7 @@ export let layout: any = {
   /** 顶部栏开合 */
   rightRender: (initInfo: any) => {
     return <RightRender />;
-  }, // return string || ReactNode;
+  } // return string || ReactNode;
 };
 
 export async function getInitialState(): Promise<{
@@ -68,19 +68,19 @@ export async function getInitialState(): Promise<{
   settings?: DefaultSettings;
 }> {
   // 如果是登录页面，不执行
-  if (history.location.pathname !== '/user/login') {
+  if (history.location.pathname !== "/user/login") {
     try {
       // const currentUser = await queryCurrent();
       return {
         // currentUser,
-        settings: defaultSettings,
+        settings: defaultSettings
       };
     } catch (error) {
-      history.push('/user/login');
+      history.push("/user/login");
     }
   }
   return {
-    settings: defaultSettings,
+    settings: defaultSettings
   };
 }
 
@@ -93,7 +93,7 @@ export function onRouteChange({
   matchedRoutes,
   location,
   routes,
-  action,
+  action
 }: {
   matchedRoutes: any;
   location: any;
@@ -101,16 +101,16 @@ export function onRouteChange({
   action: any;
 }) {
   // 页面title配置
-  document.title = '昂司打印后台管理系统';
+  document.title = "昂司打印后台管理系统";
   // console.log(location, routes);
   try {
     const { pathname } = location;
     const patern = getRoutePathMap(routes).filter(
-      (path: string) => path === pathname,
+      (path: string) => path === pathname
     );
     /** 地址匹配不是跳转404 */
     if (patern.length === 0) {
-      history.push('/404');
+      history.push("/404");
     }
   } catch (error) {
     console.log(error);
@@ -124,13 +124,17 @@ export function onRouteChange({
 }
 
 /** render覆写 render，会直接阻断所有的运行时 */
-// export function render(oldRender) {
-//     console.log(oldRender);
-//     // fetch('/api/auth').then((auth) => {
-//     //     if (auth.isLogin) { oldRender() }
-//     //     else { history.push('/login'); }
-//     // });
-// }
+export function render(oldRender: any) {
+  console.log(oldRender);
+  oldRender();
+  // fetch("/api/auth").then((auth: any) => {
+  //   if (auth.isLogin) {
+  //     oldRender();
+  //   } else {
+  //     history.push("/login");
+  //   }
+  // });
+}
 
 /** 修改交给 react-dom 渲染时的根组件 */
 // export function rootContainer(container,args:{routes，全量路由配置,plugin，运行时插件机制，history，history 实例}) {

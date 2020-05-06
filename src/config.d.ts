@@ -1,2 +1,2 @@
 /** dayjs模块插件 */
-declare module 'antd-dayjs-webpack-plugin';
+declare module "antd-dayjs-webpack-plugin";
