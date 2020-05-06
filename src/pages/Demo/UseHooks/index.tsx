@@ -1,34 +1,34 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from "react";
 
-import CardItem from './CardItem';
-import ExampleA from './ExampleA';
-import ExampleB from './ExampleB';
+import CardItem from "./CardItem";
+import ExampleA from "./ExampleA";
+import ExampleB from "./ExampleB";
 
-import { UseRef, InputElement } from '@/types';
-import { CheckItemType } from '@/components/types';
-import { useChecked } from '@/components';
+import { UseRef, InputElement } from "@/types";
+import { CheckItemType } from "@/utils/types";
+import { useChecked } from "@/utils";
 
-import './index.less';
+import "./index.less";
 
 const list: CheckItemType[] = [];
 for (let q = 0; q < 10; q++) {
   list.push({
     id: q,
     checked: false,
-    price: q + Math.floor(Math.random()),
+    price: q + Math.floor(Math.random())
   });
 }
 
 export default (): JSX.Element => {
-  const [textA, setA] = useState('ExampleA');
-  const [textB, setB] = useState('ExampleB');
+  const [textA, setA] = useState("ExampleA");
+  const [textB, setB] = useState("ExampleB");
 
   // 使用 useRef 创建 inputEl
   const inputEl: UseRef = useRef(null);
 
   // 使用 useRef 创建 textRef
   const textRef: UseRef = useRef();
-  const [text, updateText] = useState('');
+  const [text, updateText] = useState("");
 
   const { checkedAll, newCheckedList, dispatch } = useChecked(list);
 
@@ -41,7 +41,7 @@ export default (): JSX.Element => {
   useEffect(() => {
     // 将 text 值存入 textRef.current 中
     textRef.current = text;
-    console.log('textRef.current：', textRef.current);
+    console.log("textRef.current：", textRef.current);
   }, [text]);
 
   const onButtonClick = () => {
@@ -52,20 +52,20 @@ export default (): JSX.Element => {
 
   const onItemChecked = (id: number, flag: boolean) => {
     dispatch({
-      type: 'CHECKED_CHANGE',
+      type: "CHECKED_CHANGE",
       payload: {
         id,
-        checked: flag,
-      },
+        checked: flag
+      }
     });
   };
 
   const onCheckedAllChange = (flag: boolean): void => {
     dispatch({
-      type: 'CHECKED_ALL_CHANGE',
+      type: "CHECKED_ALL_CHANGE",
       payload: {
-        checked: flag,
-      },
+        checked: flag
+      }
     });
   };
 
@@ -83,11 +83,11 @@ export default (): JSX.Element => {
            <ExampleA text={textA} /> 
         */}
         <br />
-        <button onClick={() => setA('修改后的 ExampleA')}>
+        <button onClick={() => setA("修改后的 ExampleA")}>
           修改传给 ExampleA 的属性
         </button>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <button onClick={() => setB('修改后的 ExampleB')}>
+        <button onClick={() => setB("修改后的 ExampleB")}>
           修改传给 ExampleB 的属性
         </button>
       </div>

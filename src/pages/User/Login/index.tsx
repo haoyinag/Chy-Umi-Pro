@@ -1,21 +1,21 @@
-import React, { FC } from 'react';
-import qs from 'qs';
-import { debounce } from 'lodash'; // 防抖
-import { history, ConnectProps, Loading, connect, useDispatch } from 'umi';
+import React, { FC } from "react";
+import qs from "qs";
+import { debounce } from "lodash"; // 防抖
+import { history, ConnectProps, Loading, connect, useDispatch } from "umi";
 
-import { Tabs, Form, Button, Checkbox } from 'antd';
+import { Tabs, Form, Button, Checkbox } from "antd";
 
-import LoginFormItem from './form';
-import { LoginState } from './type';
+import LoginFormItem from "./form";
+import { LoginState } from "./type";
 
-import logo from '@/assets/logo.png';
-import './login.less';
+import logo from "@/assets/logo.png";
+import "./login.less";
 
 const { TabPane } = Tabs;
 const bodyHeight: number = document.body.clientHeight;
 const layout = {
   labelCol: { span: 24 },
-  wrapperCol: { span: 24 },
+  wrapperCol: { span: 24 }
 };
 
 interface Info {
@@ -30,14 +30,14 @@ interface PageProps extends ConnectProps {
   loading: boolean;
 }
 
-const storageInfo: string | null = localStorage.getItem('userInfo');
+const storageInfo: string | null = localStorage.getItem("userInfo");
 const Info = storageInfo
   ? qs.parse(storageInfo)
   : {
-      code: '',
-      password: '',
+      code: "",
+      password: "",
       remember: false,
-      username: '',
+      username: ""
     };
 
 const LoginPage: FC<PageProps> = ({ login }) => {
@@ -55,31 +55,31 @@ const LoginPage: FC<PageProps> = ({ login }) => {
   /** 获取验证码 */
   const getPatternCode = () => {
     dispatch({
-      type: 'login/queryCode',
-      payload: logo,
+      type: "login/queryCode",
+      payload: logo
     });
   };
 
   /** 提交表单且数据验证失败后回调事件 */
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   /** 提交表单且数据验证成功后回调事件 */
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    console.log("Success:", values);
     if (values.remember) {
-      localStorage.setItem('userInfo', qs.stringify(values));
+      localStorage.setItem("userInfo", qs.stringify(values));
     } else {
-      localStorage.removeItem('userInfo');
+      localStorage.removeItem("userInfo");
     }
-    history.push('/');
+    history.push("/");
   };
 
   return (
     <div
       className="login flex flex-column ali-center"
-      style={{ height: bodyHeight + 'px' }}
+      style={{ height: bodyHeight + "px" }}
     >
       <div className="logo">
         <img src={logo} alt="logo" />
@@ -120,6 +120,6 @@ const LoginPage: FC<PageProps> = ({ login }) => {
 export default connect(
   ({ login, loading }: { login: LoginState; loading: Loading }) => ({
     login,
-    loading: loading.models.login,
-  }),
+    loading: loading.models.login
+  })
 )(LoginPage);

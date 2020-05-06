@@ -1,11 +1,11 @@
-import { Effect, ImmerReducer, Subscription } from 'umi';
+import { Effect, ImmerReducer, Subscription } from "umi";
 
 export interface LoginState {
   code: string;
 }
 
 export interface LoginType {
-  namespace: 'login';
+  namespace: "login";
   state: LoginState;
   effects: {
     queryCode: Effect;

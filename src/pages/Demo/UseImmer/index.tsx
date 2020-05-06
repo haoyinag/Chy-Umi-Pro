@@ -4,19 +4,19 @@
  * umi的model默认提供immer操作
  */
 
-import React, { useState } from 'react';
-import { produce } from 'immer';
+import React, { useState } from "react";
+import { produce } from "immer";
 
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import { PageHeaderWrapper } from "@ant-design/pro-layout";
 
-import Test from './Test';
+import Test from "./Test";
 
 let arr: any[] = [];
 for (let q = 0; q < 100; q++) {
   if (q % 2 === 1) {
     arr = arr.concat({
       id: q,
-      name: '点击改变数据：' + q,
+      name: "点击改变数据：" + q
     });
   } else {
     arr = arr.concat(q);

@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { Button } from 'antd';
+import { Button } from "antd";
 
 export default ({
   list,
-  onChangeItem,
+  onChangeItem
 }: {
   list: any;
   onChangeItem: Function;
@@ -12,10 +12,10 @@ export default ({
   console.log(1);
 
   return (
-    <div style={{ height: '100%' }}>
+    <div style={{ height: "100%" }}>
       {list.length > 0 &&
         list.map((item: any, index: number) => {
-          if (typeof item === 'number') {
+          if (typeof item === "number") {
             return (
               <div key={index} className="item">
                 {item}

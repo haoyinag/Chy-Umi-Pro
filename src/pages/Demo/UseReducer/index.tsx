@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import CardItem from './CardItem';
+import CardItem from "./CardItem";
 
-import { InputElement } from '@/types/element.type';
-import { CheckItemType } from '@/components/types';
-import { useChecked } from '@/components';
+import { InputElement } from "@/types/element.type";
+import { CheckItemType } from "@/utils/types";
+import { useChecked } from "@/utils";
 
-import './index.less';
+import "./index.less";
 
 const list: CheckItemType[] = [];
 for (let q = 0; q < 10; q++) {
   list.push({
     id: q,
     checked: false,
-    price: q + Math.floor(Math.random()),
+    price: q + Math.floor(Math.random())
   });
 }
 
@@ -27,20 +27,20 @@ export default () => {
 
   const onItemChecked = (id: number, flag: boolean) => {
     dispatch({
-      type: 'CHECKED_CHANGE',
+      type: "CHECKED_CHANGE",
       payload: {
         id,
-        checked: flag,
-      },
+        checked: flag
+      }
     });
   };
 
   const onCheckedAllChange = (flag: boolean): void => {
     dispatch({
-      type: 'CHECKED_ALL_CHANGE',
+      type: "CHECKED_ALL_CHANGE",
       payload: {
-        checked: flag,
-      },
+        checked: flag
+      }
     });
   };
 

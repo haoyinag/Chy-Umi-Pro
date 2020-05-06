@@ -1,10 +1,10 @@
-import { queryUsers } from '@/services';
-import { LoginType } from './type';
+import { queryUsers } from "@/services";
+import { LoginType } from "./type";
 
 const Login: LoginType = {
-  namespace: 'login',
+  namespace: "login",
   state: {
-    code: '',
+    code: "",
   },
   effects: {
     *queryCode({ payload }, { call, put }: { call: any; put: any }): any {
@@ -16,7 +16,7 @@ const Login: LoginType = {
       }
 
       yield put({
-        type: 'getCode',
+        type: "getCode",
         payload: payload,
       });
     },
@@ -36,8 +36,7 @@ const Login: LoginType = {
   subscriptions: {
     setup({ dispatch, history }: { dispatch: any; history: any }) {
       return history.listen(({ pathname }: { pathname: any }) => {
-        console.log(pathname);
-
+        // console.log(pathname);
         // if (pathname === '/') {
         //   dispatch({
         //     type: 'queryCode',

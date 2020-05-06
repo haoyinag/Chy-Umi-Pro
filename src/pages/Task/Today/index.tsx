@@ -1,10 +1,18 @@
-import React, { FC } from 'react';
-import { ConnectProps, Loading, connect, useDispatch } from 'umi';
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import React, { FC } from "react";
+import {
+  ConnectProps,
+  Loading,
+  connect,
+  useDispatch,
+  useHistory,
+  // useLocation,
+  // useParams
+} from "umi";
+import { PageHeaderWrapper } from "@ant-design/pro-layout";
 
-import { Button, DatePicker } from 'antd';
+import { Button, DatePicker } from "antd";
 
-import { TodayTaskState } from './model';
+import { TodayTaskState } from "./model";
 
 interface PageProps extends ConnectProps {
   todayTask: TodayTaskState;
@@ -14,12 +22,15 @@ interface PageProps extends ConnectProps {
 const TodayTaskPage: FC<PageProps> = ({ todayTask }) => {
   const { name } = todayTask;
   const dispatch = useDispatch();
+  const his = useHistory();
+
+  console.log(his.action);
 
   const onClick = (num: number) => {
     dispatch({
-      type: 'todayTask/query',
+      type: "todayTask/query",
       payload:
-        num === 1 ? { name: '哈哈，我改变了useModel' } : { name: 'useModel' },
+        num === 1 ? { name: "哈哈，我改变了useModel" } : { name: "useModel" },
     });
   };
   const onChange = (date: Date, dateString: string): any => {
@@ -55,5 +66,5 @@ export default connect(
   }) => ({
     todayTask,
     loading: loading.models.todayTask,
-  }),
+  })
 )(TodayTaskPage);

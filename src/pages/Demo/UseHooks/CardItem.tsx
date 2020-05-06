@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 
-import { InputElement } from '@/types/element.type';
-import { CheckItemType } from '@/components/types';
+import { InputElement } from "@/types/element.type";
+import { CheckItemType } from "@/utils/types";
 
 interface CheckItemChangeType extends CheckItemType {
   onItemChecked: (e: boolean) => void;
@@ -14,7 +14,7 @@ function areEqual(prevProps: CheckItemType, nextProps: CheckItemType) {
 const CardItem = memo(
   ({ id, price, checked, onItemChecked }: CheckItemChangeType) => {
     return (
-      <div className="item flex jus-between" style={{ width: '150px' }}>
+      <div className="item flex jus-between" style={{ width: "150px" }}>
         <input
           id={`${id}`}
           checked={checked}
@@ -27,7 +27,7 @@ const CardItem = memo(
       </div>
     );
   },
-  areEqual,
+  areEqual
 );
 
 export default CardItem;

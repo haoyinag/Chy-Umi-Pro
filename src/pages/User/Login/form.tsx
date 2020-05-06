@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { Form, Input } from 'antd';
+import { Form, Input } from "antd";
 
-import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
 
-import { Img404Small } from '@/utils/default_images';
+import { Img404Small } from "@/utils/default_images";
 
 export default ({
   code,
-  getPatternCode,
+  getPatternCode
 }: {
   code: string | undefined;
   getPatternCode: any;
@@ -17,7 +17,7 @@ export default ({
     <React.Fragment>
       <Form.Item
         name="username"
-        rules={[{ required: true, message: '请输入用户名!' }]}
+        rules={[{ required: true, message: "请输入用户名!" }]}
       >
         <Input
           size="large"
@@ -28,7 +28,7 @@ export default ({
 
       <Form.Item
         name="password"
-        rules={[{ required: true, min: 6, message: '请至少输入6位数密码!' }]}
+        rules={[{ required: true, min: 6, message: "请至少输入6位数密码!" }]}
       >
         <Input.Password
           size="large"
@@ -39,7 +39,7 @@ export default ({
 
       <Form.Item
         name="code"
-        rules={[{ required: true, message: '请输入验证码!' }]}
+        rules={[{ required: true, message: "请输入验证码!" }]}
       >
         <Input
           size="large"
@@ -57,8 +57,8 @@ export default ({
               alt="验证码"
               style={{
                 // maxWidth: '100px',
-                maxHeight: '40px',
-                cursor: 'pointer',
+                maxHeight: "40px",
+                cursor: "pointer"
               }}
             />
           }
