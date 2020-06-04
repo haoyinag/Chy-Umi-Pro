@@ -11,12 +11,16 @@ import styles from './right.less';
 
 export const RightRender = () => {
   const [visible, setVisible] = useState(false);
+  const userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '{}');
 
   const onMenuClick = (key: string) => {
     console.log(key);
     if (key === '0') {
       setVisible(!visible);
+    } else if (key === '2') {
+      history.push('/user/profile');
     } else {
+      sessionStorage.removeItem('userInfo');
       history.push('/user/login');
     }
   };
@@ -34,7 +38,7 @@ export const RightRender = () => {
       >
         <Button type="link">
           <HeartTwoTone />
-          AngSi Me
+          {userInfo.name}
         </Button>
       </Dropdown>
       <RenderModal

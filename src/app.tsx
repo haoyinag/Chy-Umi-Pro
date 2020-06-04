@@ -1,21 +1,26 @@
 /** 库 */
-import React from "react";
-import { history } from "umi";
+import React from 'react';
+import { history } from 'umi';
+
+// import { getMenuData } from "@ant-design/pro-layout";
 
 /** 组件--antd优先 */
-import { RightRender } from "@/layouts";
+import { RightRender } from '@/layouts';
 
 /** 本地utils、模块 */
-import logo from "@/assets/logo-small.png";
-import { getRoutePathMap } from "@/utils/getMap";
-import defaultSettings, { DefaultSettings } from "../config/defaultSettings";
+// import router from "@/router";
+import logo from '@/assets/logo-small.png';
+import { getRoutePathMap } from '@/utils/getMap';
+import defaultSettings, { DefaultSettings } from '../config/defaultSettings';
+
+// const { breadcrumb } = getMenuData(router);
 
 /** const/let声明 */
 /** 运行时配置文件，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。 */
 /** layout配置/操作，需要在配置文件开启layout */
 export let layout: any = {
   logo, // 产品 Logo
-  name: "昂司打印", // 侧边栏头部产品名，默认值为包名
+  name: '昂司配送系统', // 侧边栏头部产品名，默认值为包名
   // locale: true,
   // pure: true, // 是否删除框架layout
   // menu: {
@@ -24,6 +29,7 @@ export let layout: any = {
   //   defaultOpenAll: false,
   // },
   settings: defaultSettings,
+  iconfontUrl: defaultSettings.iconfontUrl,
   /** collapsed固定开/关 */
   // collapsed: false,
   // onCollapse: (collapsed: boolean): void => {
@@ -33,15 +39,33 @@ export let layout: any = {
   //   console.log(props);
   //   return <h1>biaoti</h1>
   // },
-  // breadcrumbRender: (route: any) => {
-  //   console.log(route);
-  //   let str = '';
-  //   route &&
-  //     route.map((item: any) => {
-  //       return (str += item.breadcrumbName + '/');
-  //     });
-  //   return route;
-  // },
+  breadcrumbRender: (route: any) => {
+    // let hash: string | string[] = location.hash.split("#");
+    // hash = hash[1] || hash[0] || hash;
+    // console.log(hash,breadcrumb);
+    // let thisRoute;
+    // for (const key in breadcrumb) {
+    //   if (key === hash) {
+    //     thisRoute = {
+    //       path: breadcrumb[key].path,
+    //       breadcrumbName: breadcrumb[key].name || breadcrumb[key].title,
+    //     };
+    //     break;
+    //   }
+    // }
+    // console.log(thisRoute);
+
+    let str = '';
+    route &&
+      route.map((item: any) => {
+        return (str += item.breadcrumbName + '/');
+      });
+    if (route.length === 1) {
+      route = [];
+    }
+
+    return route;
+  },
   // headerRender:(props: BasicLayoutProps) :ReactNode=> {
   // },
   /** 发生错误后的回调（可做一些错误日志上报，打点等） */
@@ -60,7 +84,7 @@ export let layout: any = {
   /** 顶部栏开合 */
   rightRender: (initInfo: any) => {
     return <RightRender />;
-  } // return string || ReactNode;
+  }, // return string || ReactNode;
 };
 
 export async function getInitialState(): Promise<{
@@ -68,19 +92,19 @@ export async function getInitialState(): Promise<{
   settings?: DefaultSettings;
 }> {
   // 如果是登录页面，不执行
-  if (history.location.pathname !== "/user/login") {
+  if (history.location.pathname !== '/user/login') {
     try {
       // const currentUser = await queryCurrent();
       return {
         // currentUser,
-        settings: defaultSettings
+        settings: defaultSettings,
       };
     } catch (error) {
-      history.push("/user/login");
+      history.push('/user/login');
     }
   }
   return {
-    settings: defaultSettings
+    settings: defaultSettings,
   };
 }
 
@@ -93,7 +117,7 @@ export function onRouteChange({
   matchedRoutes,
   location,
   routes,
-  action
+  action,
 }: {
   matchedRoutes: any;
   location: any;
@@ -101,16 +125,16 @@ export function onRouteChange({
   action: any;
 }) {
   // 页面title配置
-  document.title = "昂司打印后台管理系统";
+  document.title = '昂司配送后台管理系统';
   // console.log(location, routes);
   try {
     const { pathname } = location;
     const patern = getRoutePathMap(routes).filter(
-      (path: string) => path === pathname
+      (path: string) => path === pathname,
     );
-    /** 地址匹配不是跳转404 */
+    /** 地址不完全匹配跳转404 */
     if (patern.length === 0) {
-      history.push("/404");
+      history.push('/404');
     }
   } catch (error) {
     console.log(error);
@@ -125,7 +149,6 @@ export function onRouteChange({
 
 /** render覆写 render，会直接阻断所有的运行时 */
 export function render(oldRender: any) {
-  console.log(oldRender);
   oldRender();
   // fetch("/api/auth").then((auth: any) => {
   //   if (auth.isLogin) {

@@ -1,9 +1,9 @@
-import request from "./interceptors";
+import request from './interceptors';
 
-const Methods = (method: string, url: string, params: any) => {
+const Methods = (method: string, url: string, params: any): Promise<any> => {
   return new Promise((resolve, reject) => {
     request[method](url, {
-      ...params
+      ...params,
     })
       .then((response: any) => {
         resolve(response);
@@ -17,11 +17,11 @@ const Methods = (method: string, url: string, params: any) => {
 };
 
 const Get = (url: string, params?: any) => {
-  return Methods("get", url, params);
+  return Methods('get', url, params);
 };
 
 const Post = (url: string, params: any) => {
-  return Methods("post", url, params);
+  return Methods('post', url, params);
 };
 
 export { Get, Post };

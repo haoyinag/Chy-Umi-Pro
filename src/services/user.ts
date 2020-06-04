@@ -1,15 +1,15 @@
-import { request } from "umi";
+import { request } from 'umi';
 
-import { Get } from "./api";
+import { Get, Post, API_DELIVERY } from './request';
+
+export async function login(params: Object | undefined) {
+  return Post(`${API_DELIVERY}/login`, params);
+}
 
 export async function queryUsers() {
-  return Get("/ap11i/users");
+  return Get('/api/users');
 }
 
 export async function queryCurrent() {
-  return request<API.CurrentUser>("/api/currentUser");
-}
-
-export async function queryNotices(): Promise<any> {
-  return request("/api/notices");
+  return request<API.CurrentUser>('/api/currentUser');
 }

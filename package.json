@@ -1,8 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev ANGSI_APP_ENV=dev",
-    "build": "umi build ANGSI_APP_ENV=build",
+    "start": "cross-env API_ENV=dev umi dev",
+    "start:test": "cross-env API_ENV=test umi dev",
+    "build:dev": "cross-env API_ENV=dev umi build",
+    "build:test": "cross-env API_ENV=test umi build",
     "analyze": "cross-env ANALYZE=1 umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
@@ -21,20 +23,28 @@
     ]
   },
   "dependencies": {
+    "@amap/amap-jsapi-types": "^0.0.4",
     "@ant-design/pro-layout": "^5.0.9",
+    "@ant-design/pro-table": "^2.2.7",
     "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "@umijs/hooks": "^1.9.2",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.1.1",
     "antd-dayjs-webpack-plugin": "^1.0.0",
     "cross-env": "^7.0.2",
+    "html2canvas": "^1.0.0-rc.5",
     "lint-staged": "^10.0.7",
     "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^2.0.5",
-    "react": "^16.12.0",
+    "react": "^16.12.0", 
     "react-dom": "^16.12.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "ts-md5": "^1.2.7",
+    "typescript": "^3.8.3",
     "umi": "^3.1.1",
     "yorkie": "^2.0.0"
-  }
+  },
+  "__npminstall_done": false
 }

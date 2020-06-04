@@ -1,0 +1,184 @@
+{
+  "id": "1804887",
+  "name": "cakes",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14472766",
+      "name": "蛋糕-草莓",
+      "font_class": "dangao-caomei",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "14472767",
+      "name": "杯状蛋糕",
+      "font_class": "beizhuangdangao",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "14472783",
+      "name": "蛋糕",
+      "font_class": "dangao",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "14472965",
+      "name": "雪糕",
+      "font_class": "xuegao",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "14472966",
+      "name": "奥利奥",
+      "font_class": "aoliao",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "14472967",
+      "name": "小蛋糕",
+      "font_class": "xiaodangao",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "14472968",
+      "name": "披萨",
+      "font_class": "pisa",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "14472969",
+      "name": "蛋糕",
+      "font_class": "dangao1",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "14473052",
+      "name": "甜甜圈",
+      "font_class": "tiantianquan",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "14473053",
+      "name": "小蛋糕",
+      "font_class": "xiaodangao1",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "14473054",
+      "name": "蛋糕",
+      "font_class": "dangao2",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "14473055",
+      "name": "卷",
+      "font_class": "juan",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "14473056",
+      "name": "牛角包",
+      "font_class": "niujiaobao",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "14473057",
+      "name": "雪糕",
+      "font_class": "xuegao1",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "14473089",
+      "name": "蛋糕",
+      "font_class": "dangao3",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "14473090",
+      "name": "雪糕",
+      "font_class": "xuegao2",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "14473091",
+      "name": "甜品",
+      "font_class": "tianpin",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "14473112",
+      "name": "蛋糕",
+      "font_class": "dangao4",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "14473113",
+      "name": "雪糕",
+      "font_class": "xuegao3",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "14473114",
+      "name": "甜品",
+      "font_class": "tianpin1",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "14473115",
+      "name": "甜点",
+      "font_class": "tiandian",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "14473173",
+      "name": "甜点",
+      "font_class": "tiandian1",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "14473174",
+      "name": "雪糕",
+      "font_class": "xuegao4",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "14473175",
+      "name": "蛋糕",
+      "font_class": "dangao5",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "14473178",
+      "name": "雪糕",
+      "font_class": "xuegao5",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    }
+  ]
+}

@@ -72,5 +72,5 @@ export default {
   },
   title: 'Ant 哈哈 Pro',
   pwa: false,
-  iconfontUrl: '',
+  iconfontUrl: '//at.alicdn.com/t/xxxxxxxx.js',
 } as DefaultSettings;

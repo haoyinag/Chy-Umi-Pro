@@ -1,7 +1,7 @@
-import React, { useState, PureComponent } from "react";
-import { debounce } from "lodash";
+import React, { useState, PureComponent } from 'react';
+import { debounce } from 'lodash';
 
-import { Button } from "antd";
+import { Button } from 'antd';
 
 interface State {
   count: number;
@@ -15,7 +15,7 @@ class UseDebounceClass extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
     };
     /** 也可以这样使用 */
     // this.onClick = debounce(this.onClick, 350);
@@ -24,7 +24,7 @@ class UseDebounceClass extends PureComponent<Props, State> {
   onClick = () => {
     const num = this.state.count + 1;
     this.setState({
-      count: num
+      count: num,
     });
   };
 
@@ -52,12 +52,16 @@ export default () => {
 
   return (
     <div>
-      <Button type="primary" onClick={debounce(() => onClick(), 350)}>
+      <Button
+        type="primary"
+        onClick={debounce(() => onClick(), 350)}
+        className="fn-debounce"
+      >
         函数式使用：{count}
       </Button>
-      {"-----------------"}
+      {'-----------------'}
       <UseDebounceClass />
-      {"-----------------"}
+      {'-----------------'}
       输入框防抖：
       <input
         type="text"

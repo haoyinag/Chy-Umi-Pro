@@ -21,6 +21,7 @@ interface GAFieldsObject {
   nonInteraction?: boolean;
 }
 interface Window {
+  AMap: AMap;
   ga: (
     command: 'send',
     hitType: 'event' | 'pageview',
@@ -28,6 +29,8 @@ interface Window {
   ) => void;
   reloadAuthorized: () => void;
 }
+
+declare const AMap;
 
 declare let ga: Function;
 
@@ -37,4 +40,4 @@ declare let ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
   | 'site'
   | undefined;
 
-declare const ANGSI_APP_ENV: 'test' | 'dev' | 'pre' | false;
+declare const API_ENV: 'test' | 'dev' | 'pre';

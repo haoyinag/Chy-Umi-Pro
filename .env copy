@@ -1,0 +1,5 @@
+PORT=3000
+
+FORK_TS_CHECKER=1 umi dev
+
+# ANALYZE=1 umi build

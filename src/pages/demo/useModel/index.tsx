@@ -21,7 +21,7 @@ const UseModelPage: FC<PageProps> = ({ modelDemo }) => {
 
   const onClick = (num: number) => {
     dispatch({
-      type: 'modelDemo/query',
+      type: 'modelDemo/queryTest',
       payload:
         num === 1 ? { name: '哈哈，我改变了useModel' } : { name: 'useModel' },
     });

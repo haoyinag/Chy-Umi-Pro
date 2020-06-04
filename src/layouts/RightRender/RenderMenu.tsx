@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 
 import { Menu } from 'antd';
 import {
+  ProfileOutlined,
   LogoutOutlined,
-  NodeIndexOutlined,
-  UserSwitchOutlined,
+  // NodeIndexOutlined,
+  // UserSwitchOutlined,
 } from '@ant-design/icons';
 
 interface PageProps {
@@ -18,20 +19,24 @@ const RenderMenu: FC<PageProps> = ({ onMenuClick }) => {
   };
 
   return (
-    <Menu defaultSelectedKeys={['0']} onClick={e => onClick(e)}>
-      <Menu.Item key="0">
+    <Menu defaultSelectedKeys={['2']} onClick={(e) => onClick(e)}>
+      <Menu.Item key="2">
+        <ProfileOutlined />
+        个人信息
+      </Menu.Item>
+      {/* <Menu.Item key="0">
         <UserSwitchOutlined />
         切换身份
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item key="1">
         <LogoutOutlined />
         退出登录
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="3" disabled>
+      {/* <Menu.Item key="3" disabled>
         <NodeIndexOutlined />
         切换门店
-      </Menu.Item>
+      </Menu.Item> */}
     </Menu>
   );
 };
