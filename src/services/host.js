@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
 export const API = api;
 
 export const API_ADMIN = '/admin'; // 旧生产后台前缀
-export const API_DELIVERY = '/delivery'; // 新配送后台
+export const API_DELIVERY = '/delivery'; // 新后台
 
 // 电商后台地址 （暂时作用于跳转电商后台订单详情）
 export const adminUrl = {

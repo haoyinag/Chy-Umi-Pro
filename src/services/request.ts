@@ -171,6 +171,6 @@ export const Delete = (url: string, data: object = {}) => {
 };
 
 export const API_ADMIN = ADMIN; // 旧生产后台前缀
-export const API_DELIVERY = DELIVERY; // 新配送后台
+export const API_DELIVERY = DELIVERY; // 新后台
 
 export default request;
