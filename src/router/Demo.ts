@@ -16,13 +16,6 @@ export default {
   // },
   routes: [
     {
-      path: '/demo/gmap',
-      name: '高德地图使用',
-      title: '高德地图使用',
-      icon: 'smile',
-      component: '@/pages/Demo/Gmap',
-    },
-    {
       path: '/demo/use-immer',
       name: 'immer使用',
       title: 'immer使用',
