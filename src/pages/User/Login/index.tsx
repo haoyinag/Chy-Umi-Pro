@@ -83,7 +83,7 @@ const LoginPage: FC<PageProps> = ({ login, loading }) => {
       >
         <div className="logo">
           <img src={logo} alt="logo" />
-          <div className="info">昂司美食</div>
+          <div className="info">美食</div>
         </div>
         <Form
           {...layout}

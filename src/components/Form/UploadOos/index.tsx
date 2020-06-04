@@ -5,7 +5,7 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { UPLOAD_DUMAIN } from '@/utils';
 
 /** 上传域名（暂时写死） */
-const uploadHost = `https://test130-api.angsi.com/${UPLOAD_DUMAIN}`;
+const uploadHost = `https://test-api.xxxx.com/${UPLOAD_DUMAIN}`;
 
 /** props类型 */
 interface UploadProps {

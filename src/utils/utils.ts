@@ -59,7 +59,7 @@ export const getKeyValueArray = (obj: any): any[] => {
  * 导出
  * @param url 导出接口
  * @param params 参数 可选
- * @param api 接口前缀 可选 默认当前 x-api.angsi.com
+ * @param api 接口前缀 可选 默认当前 x-api.xxx.com
  */
 export const exportData = (
   url: string,
