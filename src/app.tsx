@@ -2,6 +2,9 @@
 import React from 'react';
 import { history } from 'umi';
 
+import zhCN from 'antd/es/locale/zh_CN';
+import { ConfigProvider } from 'antd';
+
 // import { getMenuData } from "@ant-design/pro-layout";
 
 /** 组件--antd优先 */
@@ -163,6 +166,10 @@ export function render(oldRender: any) {
 // export function rootContainer(container,args:{routes，全量路由配置,plugin，运行时插件机制，history，history 实例}) {
 export function rootContainer(container: any) {
   // 比如用于在外面包一个 Provider
-  const ThemeProvider = () => <div id="root-out">{container}</div>;
+  const ThemeProvider = () => (
+    <div id="root-out">
+      <ConfigProvider locale={zhCN}>{container}</ConfigProvider>
+    </div>
+  );
   return React.createElement(ThemeProvider, null, container);
 }

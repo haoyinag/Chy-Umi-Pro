@@ -65,15 +65,15 @@ let configParams: any = {
     // locale: true,
   },
   /** 国际化--构建式配置，src/locals是约定式配置*/
-  locale: {
-    // title: true, // 标题国际化.在项目中配置的 title 及路由中的 title 可直接使用国际化 key，自动被转成对应语言的文案
-    default: 'zh-CN', // 默认语言，当检测不到具体语言时，展示 default 中指定的语言
-    // default true, when it is true, will use `navigator.language` overwrite default
-    antd: true, // 开启后，支持 antd 国际化
-    // baseNavigator: true, // 开启浏览器语言检测
-    // baseSeparator: "-", // 国家（lang） 与 语言（language） 之间的分割符
-    //  ...
-  },
+  // locale: {
+  //   // title: true, // 标题国际化.在项目中配置的 title 及路由中的 title 可直接使用国际化 key，自动被转成对应语言的文案
+  //   default: 'zh-CN', // 默认语言，当检测不到具体语言时，展示 default 中指定的语言
+  //   // default true, when it is true, will use `navigator.language` overwrite default
+  //   antd: true, // 开启后，支持 antd 国际化
+  //   // baseNavigator: true, // 开启浏览器语言检测
+  //   // baseSeparator: "-", // 国家（lang） 与 语言（language） 之间的分割符
+  //   //  ...
+  // },
   /** html在head标签中新增的额外脚本，js文件地址或者表达式或者json：{ src: '/foo.js', defer: true },
       { content: `alert('你好');`, charset: 'utf-8' }, */
   headScripts: [`console.log("页面加载");`],
