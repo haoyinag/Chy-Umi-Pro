@@ -17,6 +17,7 @@ import routes from '../src/router';
 
 let configParams: any = {
   // title: 'site.title',
+  title: false,
   hash: true,
   base: '/',
   history: { type: 'hash' },
