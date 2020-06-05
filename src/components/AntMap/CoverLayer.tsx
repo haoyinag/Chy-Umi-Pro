@@ -7,25 +7,22 @@ import { ProvinceLayer, CityLayer, CountyLayer } from '@antv/l7-district';
 import { Mapbox } from '@antv/l7-maps';
 const { Option } = Select;
 
+/** 接口 */
+import { PCData, PCAData } from './api';
+
 /** 默认数据 */
-import { PROVINCEDATA } from './initData';
+import {
+  initProvince,
+  initCity,
+  initArea,
+  NAME_CHN,
+  COLORS,
+  PROVINCEDATA,
+} from './initData';
 
 /** 类型声明 */
-import { IProps, LayerParams } from './type';
+import { PCA, IProps, LayerParams } from './type';
 
-/** 本文件用常量 */
-const initProvince = ['440000']; // 默认广东省
-const initCity = ['440000', '440300']; // 默认深圳市
-const initArea = ['440000', '440300', '440305']; // 默认南山区
-const NAME_CHN = 'NAME_CHN';
-const COLORS = [
-  '#feedde',
-  '#fdd0a2',
-  '#fdae6b',
-  '#fd8d3c',
-  '#e6550d',
-  '#a63603',
-];
 // Mapbox 配置
 const MapboxParams = (center: [number, number], { ...restProps }) => ({
   center,
@@ -40,20 +37,25 @@ const MapboxParams = (center: [number, number], { ...restProps }) => ({
 /** 性能优化 */
 function areEqual(preProps: IProps, nextProps: IProps) {
   return (
+    preProps.type === nextProps.type &&
     preProps.center === nextProps.center &&
     preProps.colors === nextProps.colors &&
     preProps.defaultCode === nextProps.defaultCode
   );
 }
 
-/** 组件代码 */
+/**
+ * 组件代码
+ * 根据 AntV 展示省市区的组件封装
+ * 根据传入的type类型展示省/市/区区域地图
+ */
 export default memo(
   ({
-    type = 'province',
+    type = PCA.province,
     center = [116.2825, 39.9],
-    defaultCode = type === 'province'
+    defaultCode = type === PCA.province
       ? initProvince
-      : type === 'city'
+      : type === PCA.city
       ? initCity
       : initArea,
     colors = COLORS,
@@ -109,21 +111,24 @@ export default memo(
           ...layerProps,
         };
         let layer;
+        /** 根据type不同，参数可能不一致 */
         switch (type) {
-          case 'province':
+          case PCA.province:
             layer = new ProvinceLayer(_scene, layerParams);
             setLayerInstance(layer);
             break;
-          case 'city':
-            getPCData().then((data: any) => {
-              layerParams.data = data;
+          case PCA.city:
+            PCData().then(([ops, provincedata]: any) => {
+              setOptions(ops);
+              layerParams.data = provincedata;
               layerParams.joinBy = ['adcode', 'code'];
               layer = new CityLayer(_scene, layerParams);
               setLayerInstance(layer);
             });
             break;
-          case 'area':
-            getPACData().then(() => {
+          case PCA.area:
+            PCAData().then((res: any) => {
+              setOptions(res);
               (layerParams.adcode =
                 defaultCode?.length === 3 ? [defaultCode[2]] : [initArea[2]]), // 南山
                 (layer = new CountyLayer(_scene, layerParams));
@@ -139,37 +144,7 @@ export default memo(
       });
     };
 
-    /** 省市数据获取 */
-    const getPCData = async () => {
-      const res = await fetch(
-        'https://gw.alipayobjects.com/os/bmw-prod/551e3ca6-6dad-421b-a8b4-b225e47f73ca.json',
-      );
-      const ops = await res.json();
-      setOptions(ops);
-      const response = await fetch(
-        'https://gw.alipayobjects.com/os/bmw-prod/149b599d-21ef-4c24-812c-20deaee90e20.json',
-      );
-      const provinceData = await response.json();
-      const data = Object.keys(provinceData).map((key: string) => {
-        return {
-          code: key,
-          name: provinceData[key][0],
-          pop: provinceData[key][2] * 1,
-        };
-      });
-      return data;
-    };
-
-    /** 省市区获取 */
-    const getPACData = async () => {
-      const res = await fetch(
-        'https://gw.alipayobjects.com/os/bmw-prod/04de56cc-5998-4f7e-9ad3-e87e9ac5fd39.json',
-      );
-      const ops = await res.json();
-      setOptions(ops);
-    };
-
-    /** 省change */
+    /** change事件 */
     const onProvinceChange = (val: number) => {
       console.log(val);
       setLoading(true);
@@ -178,16 +153,17 @@ export default memo(
       }, 350);
       onChange && onChange(val);
       switch (type) {
-        case 'province':
+        case PCA.province:
           return layerInstance.updateDistrict([val]);
-        case 'city':
+        case PCA.city:
           return layerInstance?.updateDistrict([val[1]]);
-        case 'area':
+        case PCA.area:
           return layerInstance.updateDistrict([val[2]]);
       }
     };
 
-    const getList = (type: 'province' | 'city' | 'area') => {
+    /** 根据type渲染不同的组件 */
+    const getComponent = () => {
       let props: any = {
         defaultValue: defaultCode,
         style: {
@@ -200,7 +176,7 @@ export default memo(
         onChange: (val: number) => onProvinceChange(val),
       };
       switch (type) {
-        case 'province':
+        case PCA.province:
           return (
             <Select {...props}>
               {PROVINCEDATA.map((province, i) => {
@@ -212,10 +188,10 @@ export default memo(
               })}
             </Select>
           );
-        case 'city':
+        case PCA.city:
           props.options = options;
           return <Cascader {...props} />;
-        case 'area':
+        case PCA.area:
           props.options = options;
           return <Cascader {...props} />;
         default:
@@ -223,11 +199,7 @@ export default memo(
       }
     };
 
-    return (
-      <Spin spinning={loading}>
-        <div style={{ minHeight: '500px' }}>{getList(type)}</div>
-      </Spin>
-    );
+    return <Spin spinning={loading}>{getComponent()}</Spin>;
   },
   areEqual,
 );
