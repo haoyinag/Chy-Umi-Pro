@@ -99,19 +99,17 @@ export default memo(
       setTimeout(() => {
         setLoading(false);
       }, 500);
-      initData();
       if (sceneIntance) {
         // 要先卸载，否则切换在父组件切换type的时候实例会重叠
         sceneIntance.destroy();
         setSceneIntance(null);
-      } else {
       }
+      // 初始化数据要放在 sceneIntance.destroy() 之后
+      initData();
     }, [type]);
 
     /** 初始化 */
     const initData = () => {
-      console.log(type);
-
       const _scene = new Scene({
         id: 'map',
         map: new Mapbox(MapboxParams(center, { ...boxProps })),
@@ -144,8 +142,9 @@ export default memo(
           ...layerParams,
           ...layerProps,
         };
-        let layer;
+
         /** 根据type不同，参数可能不一致 */
+        let layer;
         switch (type) {
           case PCA.province:
             layer = new ProvinceLayer(_scene, layerParams);
@@ -163,6 +162,7 @@ export default memo(
           case PCA.area:
             PCAData().then((res: any) => {
               setOptions(res);
+              layerParams.data = [];
               (layerParams.adcode =
                 defaultCode?.length === 3 ? [defaultCode[2]] : [initArea[2]]), // 南山
                 (layer = new CountyLayer(_scene, layerParams));
