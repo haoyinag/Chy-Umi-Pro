@@ -172,9 +172,9 @@ export const PROVINCEDATA = [
   },
 ];
 
-export const initProvince = ['440000']; // 默认广东省
-export const initCity = ['440000', '440300']; // 默认深圳市
-export const initArea = ['440000', '440300', '440305']; // 默认南山区
+export const initProvince = [440000]; // 默认广东省
+export const initCity = [440000, 440300]; // 默认深圳市
+export const initArea = [440000, 440300, 440305]; // 默认南山区
 export const NAME_CHN = 'NAME_CHN';
 export const COLORS = [
   '#feedde',
