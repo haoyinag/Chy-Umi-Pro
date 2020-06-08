@@ -6,6 +6,11 @@ interface State {
   second: number;
 }
 
+interface Action {
+  type: string;
+  payload?: any;
+}
+
 function getState(): State {
   const now = new Date();
   return {
@@ -15,7 +20,7 @@ function getState(): State {
   };
 }
 
-function reducer(state: State, action: { type: string }) {
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case 'tick':
       return getState();
