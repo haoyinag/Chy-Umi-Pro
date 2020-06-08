@@ -29,6 +29,20 @@ function reducer(state: State, action: Action) {
   }
 }
 
+/**
+ * 时钟逻辑抽离
+ * 返回一个当前的 时/分/秒 对象
+ * exp：
+        const [flag, setFlag] = useState<boolean>(false)
+        const { hour, minute, second } = useClock();
+        useEffect(() => {
+            if (!flag) {
+                setTimeout(() => {
+                    console.log(hour, minute, second);
+                }, 1000);
+            }
+        });
+ */
 export function useClock() {
   const [state, dispatch] = useReducer(reducer, getState());
   useEffect(() => {
