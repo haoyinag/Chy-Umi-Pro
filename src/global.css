@@ -1,5 +1,5 @@
-@import "./utils/styles/flex.less";
-@import "./utils/styles/common.less";
+@import './utils/styles/flex.less';
+@import './utils/styles/common.less';
 /* @import './utils/styles/flex.styl'; */
 
 /* #root {
@@ -26,6 +26,9 @@
   background-color: #fff;
 }
 
+.l7-control-logo .l7-ctrl-logo {
+  display: none;
+}
 /* .ant-pro-basicLayout {
   height: 100%;
 }
