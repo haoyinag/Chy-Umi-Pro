@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from 'react';
 
 /** 第三方组件 */
-import { Spin, Select, Cascader } from 'antd';
+import { Spin, Select, Cascader, message } from 'antd';
 import { Scene } from '@antv/l7';
 import { ProvinceLayer, CityLayer, CountyLayer } from '@antv/l7-district';
 import { Mapbox } from '@antv/l7-maps';
@@ -37,10 +37,11 @@ const MapboxParams = (center: [number, number], { ...restProps }) => ({
 /** 性能优化 */
 function areEqual(preProps: IProps, nextProps: IProps) {
   return (
-    preProps.type === nextProps.type &&
-    preProps.center === nextProps.center &&
-    preProps.colors === nextProps.colors &&
-    preProps.defaultCode === nextProps.defaultCode
+    preProps.type === nextProps.type
+    // &&
+    // preProps.center === nextProps.center &&
+    // preProps.colors === nextProps.colors &&
+    // preProps.defaultCode === nextProps.defaultCode
   );
 }
 
@@ -63,21 +64,54 @@ export default memo(
     layerProps,
     onChange,
   }: IProps) => {
+    const [sceneIntance, setSceneIntance] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(true); // loading，提示用户体验
     const [layerInstance, setLayerInstance] = useState<any>(null); // 省市区视图实例
     const [options, setOptions] = useState<any>(null);
 
-    /** 地图数据初始化 */
     useEffect(() => {
+      if (process.env.NODE_ENV === 'development') {
+        switch (type) {
+          case PCA.province:
+            if (defaultCode.length !== 1) {
+              message.error('省 -- 默认值只需传递一个值');
+            }
+            break;
+          case PCA.city:
+            if (defaultCode.length !== 2) {
+              message.error('市-- 默认值需传两个值');
+            }
+            break;
+          case PCA.area:
+            if (defaultCode.length !== 1) {
+              message.error('区-- 默认值只需传递一个值');
+            }
+            break;
+          default:
+            message.error('请传递 province|city|area 中的一个值');
+            break;
+        }
+      }
+    }, []);
+
+    useEffect(() => {
+      setLoading(true);
       setTimeout(() => {
         setLoading(false);
       }, 500);
       initData();
-      // _scene.destroy();
-    }, []);
+      if (sceneIntance) {
+        // 要先卸载，否则切换在父组件切换type的时候实例会重叠
+        sceneIntance.destroy();
+        setSceneIntance(null);
+      } else {
+      }
+    }, [type]);
 
     /** 初始化 */
     const initData = () => {
+      console.log(type);
+
       const _scene = new Scene({
         id: 'map',
         map: new Mapbox(MapboxParams(center, { ...boxProps })),
@@ -142,6 +176,7 @@ export default memo(
             break;
         }
       });
+      setSceneIntance(_scene);
     };
 
     /** change事件 */
