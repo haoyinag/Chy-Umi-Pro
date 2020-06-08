@@ -83,8 +83,8 @@ export default memo(
             }
             break;
           case PCA.area:
-            if (defaultCode.length !== 1) {
-              message.error('区-- 默认值只需传递一个值');
+            if (defaultCode.length !== 3) {
+              message.error('区-- 默认值需传递三个值');
             }
             break;
           default:
