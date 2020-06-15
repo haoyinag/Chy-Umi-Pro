@@ -1,107 +1,52 @@
-import React from 'react';
-// import { Link } from "umi";
+import React, { useState } from 'react';
 
-// import { AutoComplete } from "antd";
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import { Select } from 'antd';
 
-// import { Filter } from "@/components";
+const { Option } = Select;
 
-// const searchList = [
-//   {
-//     label: "fields-aaa" + 1,
-//     key: "fields-bbb" + 1,
-//     tagName: "input",
-//     rules: [
-//       {
-//         required: true,
-//         message: "fields-" + 1 + ":Input something!",
-//       },
-//     ],
-//   },
-//   {
-//     tagName: "input",
-//     key: "treeSelectItem",
-//     label: "类型",
-//     defaultValue: null,
-//     placeholder: "请选择",
-//     list: [
-//       {
-//         id: 0,
-//         key: "123",
-//         children: [
-//           {
-//             id: 10,
-//             key: "12311",
-//           },
-//           {
-//             id: 11,
-//             key: "asd11",
-//           },
-//         ],
-//       },
-//       {
-//         id: 1,
-//         key: "asd",
-//       },
-//     ],
-//   },
-//   {
-//     tagName: "select",
-//     key: "selectItem",
-//     label: "类型2",
-//     defaultValue: null,
-//     placeholder: "请选择",
-//     list: [
-//       {
-//         id: 0,
-//         key: "123",
-//       },
-//       {
-//         id: 1,
-//         key: "asd",
-//       },
-//     ],
-//   },
-//   {
-//     tagName: "autoComplete",
-//     key: "autoCompleteItem",
-//     label: "标题",
-//     options: [
-//       { value: "Burns Bay Road" },
-//       { value: "Downing Street" },
-//       { value: "Wall Street" },
-//     ],
-//   },
-//   {
-//     tagName: "switch",
-//     key: "timerangepickerItem",
-//     label: "时间",
-//     timeRange: {
-//       startTime: "00:10:00",
-//       endTime: "00:20:00",
-//     },
-//   },
-// ];
+/** 组件 */
+import CoverLayer from '@/components/AntMap/CoverLayer';
+
+/** 本地util */
+// import { useClock } from '@/utils';
 
 export default () => {
-  return (
-    <PageHeaderWrapper title="首页" content="">
-      {/* <Link to="/task/today?a=1&b=2">今日任务</Link>
+  // const { hour, minute, second } = useClock();
+  const [type, setType] = useState<'province' | 'area' | 'city'>('area');
 
-      <Filter filterList={searchList} /> */}
-      {/* 
-      <AutoComplete
-        options={[
-          { value: "Burns Bay Road" },
-          { value: "Downing Street" },
-          { value: "Wall Street" },
-        ]}
-        style={{ width: 200 }}
-        // onSelect={onSelect}
-        // onSearch={onSearch}
-        // onChange={onChange}
-        placeholder="control mode"
-      /> */}
-    </PageHeaderWrapper>
+  // useEffect(() => {
+  //   if (type === 'province') {
+  //     setTimeout(() => {
+  //       console.log(hour, minute, second);
+  //     }, 1000);
+  //   }
+  // });
+
+  return (
+    <>
+      <Select
+        defaultValue="area"
+        style={{ width: 120, position: 'absolute', zIndex: 100000 }}
+        onChange={(val: 'province' | 'area' | 'city') => setType(val)}
+      >
+        <Option value="province">province</Option>
+        <Option value="city">city</Option>
+        <Option value="area">area</Option>
+      </Select>
+      <div style={{ height: '500px' }}>
+        <CoverLayer type={type} />
+
+        <div
+          id="map"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+        />
+      </div>
+    </>
   );
 };

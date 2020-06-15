@@ -37,11 +37,10 @@ const MapboxParams = (center: [number, number], { ...restProps }) => ({
 /** 性能优化 */
 function areEqual(preProps: IProps, nextProps: IProps) {
   return (
-    preProps.type === nextProps.type
-    // &&
-    // preProps.center === nextProps.center &&
-    // preProps.colors === nextProps.colors &&
-    // preProps.defaultCode === nextProps.defaultCode
+    preProps.type === nextProps.type &&
+    preProps.center === nextProps.center &&
+    preProps.colors === nextProps.colors &&
+    preProps.defaultCode === nextProps.defaultCode
   );
 }
 
@@ -180,7 +179,7 @@ export default memo(
     };
 
     /** change事件 */
-    const onProvinceChange = (val: number) => {
+    const onProvinceChange = (val: string[]) => {
       console.log(val);
       setLoading(true);
       setTimeout(() => {
@@ -189,17 +188,20 @@ export default memo(
       onChange && onChange(val);
       switch (type) {
         case PCA.province:
-          return layerInstance.updateDistrict([val]);
+          return layerInstance.updateDistrict([`${val}`]);
         case PCA.city:
-          return layerInstance?.updateDistrict([val[1]]);
+          console.log([val[1]]);
+          return layerInstance?.updateDistrict([val]);
         case PCA.area:
-          return layerInstance.updateDistrict([val[2]]);
+          console.log([val[2]]);
+          return layerInstance.updateDistrict([val]);
       }
     };
 
     /** 根据type渲染不同的组件 */
     const getComponent = () => {
       let props: any = {
+        allowClear: false,
         defaultValue: defaultCode,
         style: {
           // width: 120,
@@ -208,7 +210,7 @@ export default memo(
           right: '10px',
           top: '10px',
         },
-        onChange: (val: number) => onProvinceChange(val),
+        onChange: (val: string[]) => onProvinceChange(val),
       };
       switch (type) {
         case PCA.province:
