@@ -5,7 +5,7 @@ import { Select } from 'antd';
 const { Option } = Select;
 
 /** 组件 */
-import CoverLayer from '@/components/AntMap/CoverLayer';
+// import CoverLayer from '@/components/AntMap/CoverLayer';
 
 /** 本地util */
 // import { useClock } from '@/utils';
@@ -33,7 +33,7 @@ export default () => {
         <Option value="city">city</Option>
         <Option value="area">area</Option>
       </Select>
-      <div style={{ height: '500px' }}>
+      {/* <div style={{ height: '500px' }}>
         <CoverLayer type={type} />
 
         <div
@@ -46,7 +46,7 @@ export default () => {
             bottom: 0,
           }}
         />
-      </div>
+      </div> */}
     </>
   );
 };
