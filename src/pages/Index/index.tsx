@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Select } from 'antd';
 
@@ -12,7 +12,7 @@ const { Option } = Select;
 
 export default () => {
   // const { hour, minute, second } = useClock();
-  const [type, setType] = useState<'province' | 'area' | 'city'>('area');
+  // const [type, setType] = useState<'province' | 'area' | 'city'>('area');
 
   // useEffect(() => {
   //   if (type === 'province') {
@@ -26,8 +26,8 @@ export default () => {
     <>
       <Select
         defaultValue="area"
-        style={{ width: 120, position: 'absolute', zIndex: 100000 }}
-        onChange={(val: 'province' | 'area' | 'city') => setType(val)}
+        // style={{ width: 120, position: 'absolute', zIndex: 100000 }}
+        // onChange={(val: 'province' | 'area' | 'city') => setType(val)}
       >
         <Option value="province">province</Option>
         <Option value="city">city</Option>
